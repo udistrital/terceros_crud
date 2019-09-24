@@ -328,6 +328,7 @@ CREATE TABLE terceros.numero_identificacion(
     tipo_documento_id integer NOT NULL,
     tercero_id integer NOT NULL,
     numero character varying(50) NOT NULL,
+    digito_verificacion numeric(2,0),
 	activo boolean NOT NULL,
 	fecha_creacion TIMESTAMP NOT NULL,
 	fecha_modificacion TIMESTAMP NOT NULL,
@@ -340,6 +341,7 @@ COMMENT ON COLUMN terceros.numero_identificacion.id IS 'Identificador unico de l
 COMMENT ON COLUMN terceros.numero_identificacion.tipo_documento_id IS 'Identificador unico de la tabla tipo_documento';
 COMMENT ON COLUMN terceros.numero_identificacion.tercero_id IS 'Identificador unico de la tabla tercero.';
 COMMENT ON COLUMN terceros.numero_identificacion.numero IS 'Numero de Identificacion del Tercero.';
+COMMENT ON COLUMN terceros.numero_identificacion.digito_verificacion IS 'Dígito de verificación de la DIAN. Toda persona natural o jurídica que tenga un RUT debe tener un DV (NOT NULL para personas_juridicas).';
 COMMENT ON COLUMN terceros.numero_identificacion.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';
 COMMENT ON COLUMN terceros.numero_identificacion.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';
 COMMENT ON COLUMN terceros.numero_identificacion.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';
@@ -435,9 +437,71 @@ COMMENT ON COLUMN terceros.genero_persona.activo IS 'Valor booleano para indicar
 COMMENT ON COLUMN terceros.genero_persona.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';
 COMMENT ON COLUMN terceros.genero_persona.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';
 
+--Creacion tabla informacion_socioeconomica 
+
+CREATE SEQUENCE terceros.informacion_socioeconomica_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START WITH 1
+	CACHE 1
+	NO CYCLE
+	OWNED BY NONE;
+
+
+
+comunidad_lgbt
+cabeza_familia
+personas_a_cargo
+número de personas a cargo
+declarante renta
+Hijos
+numero hijos
+Pensionado
+
+estrato
+puntaje sisben
+
+
+
+CREATE TABLE terceros.informacion_socioeconomica(
+	id integer NOT NULL DEFAULT nextval('terceros.informacion_socioeconomica_id_seq'::regclass),
+    tercero_id integer NOT NULL,
+
+    --NOT NULL DEFAULT false,
+    --estado_civil character varying(20) NOT NULL DEFAULT 'SOLTERO'::character varying
+
+    estrato numeric (1,0),
+    puntaje_sisben numeric (3,2),
+    declarante_renta boolean,
+    
+
+    comunidad_lgbt boolean,    
+
+    estado_civil boolean,
+    cabeza_familia boolean,
+    personas_a_cargo boolean,
+    numero_personas_a_cargo numeric(2,0),
+    hijos boolean,
+    numero_hijos numeric(2,0),
+    
+
+	activo boolean NOT NULL,
+	fecha_creacion TIMESTAMP NOT NULL,
+	fecha_modificacion TIMESTAMP NOT NULL,
+	CONSTRAINT pk_informacion_socioeconomica PRIMARY KEY (id),
+    CONSTRAINT fk_tercero_informacion_socieconomica FOREIGN KEY (tercero_id) REFERENCES terceros.tercero(id)
+);
+COMMENT ON TABLE terceros.informacion_socioeconomica IS 'Tabla que relaciona toda la información socioeconomica de un tercero.';
+COMMENT ON COLUMN terceros.informacion_socioeconomica.id IS 'Identificador unico de la tabla informacion_socioeconomica.';
+COMMENT ON COLUMN terceros.informacion_socioeconomica.tercero_id IS 'Identificador unico de la tabla tercero.';
+
+
+COMMENT ON COLUMN terceros.informacion_socioeconomica.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';
+COMMENT ON COLUMN terceros.informacion_socioeconomica.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';
+COMMENT ON COLUMN terceros.informacion_socioeconomica.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';
+
 --|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 
 
 --|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
-
-
