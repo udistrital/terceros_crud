@@ -1,7 +1,5 @@
---Schema Terceros
+--Schema Terceros :)
 CREATE SCHEMA terceros;
-
-
 
 --Creacion tabla tipo_documento
 CREATE SEQUENCE terceros.tipo_documento_id_seq
@@ -189,12 +187,11 @@ CREATE TABLE terceros.tercero(
 	fecha_nacimiento TIMESTAMP,
     activo boolean NOT NULL,
     tipo_contribuyente_id integer NOT NULL,
-    tipo_tercero_id integer NOT NULL,
+    tercero_tipo_tercero_id integer NOT NULL,
 	fecha_creacion TIMESTAMP NOT NULL,
 	fecha_modificacion TIMESTAMP NOT NULL,    
 	CONSTRAINT pk_tercero PRIMARY KEY (id),
-    CONSTRAINT fk_tipo_contribuyente_tercero FOREIGN KEY (tipo_contribuyente_id) REFERENCES terceros.tipo_contribuyente(id),
-    CONSTRAINT fk_tipo_tercero_tercero FOREIGN KEY (tipo_tercero_id) REFERENCES terceros.tipo_tercero(id)
+    CONSTRAINT fk_tipo_contribuyente_tercero FOREIGN KEY (tipo_contribuyente_id) REFERENCES terceros.tipo_contribuyente(id)
 );
 COMMENT ON TABLE terceros.tercero IS 'Tabla que parametriza los Tipos de contribuyentes: PersonaNatural - Persona Juridica';
 
@@ -203,6 +200,36 @@ COMMENT ON TABLE terceros.tercero IS 'Tabla que parametriza los Tipos de contrib
 --|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 --|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
 --|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
+
+
+--Creacion tabla tercero_tipo_tercero
+CREATE SEQUENCE terceros.tercero_tipo_tercero_id_seq
+	INCREMENT BY 1
+	MINVALUE 1
+	MAXVALUE 9223372036854775807
+	START WITH 1
+	CACHE 1
+	NO CYCLE
+	OWNED BY NONE;
+
+CREATE TABLE terceros.tercero_tipo_tercero(
+	id integer NOT NULL DEFAULT nextval('terceros.tercero_tipo_tercero_id_seq'::regclass),
+    tercero_id integer NOT NULL,
+	tipo_tercero_id integer NOT NULL,
+	activo boolean NOT NULL,
+	fecha_creacion TIMESTAMP NOT NULL,
+	fecha_modificacion TIMESTAMP NOT NULL,
+	CONSTRAINT pk_tercero_tipo_tercero PRIMARY KEY (id),
+	CONSTRAINT fk_tercero_tercero_tipo_tercero FOREIGN KEY (tercero_id) REFERENCES terceros.tercero(id),
+	CONSTRAINT fk_tipo_tercero_tercero_tipo_tercero FOREIGN KEY (tipo_tercero_id) REFERENCES terceros.tipo_tercero(id)
+);
+COMMENT ON TABLE terceros.tercero_tipo_tercero IS 'Tabla que relaciona un tercero con uno o mas tipos de tercero Ej: Un colegio es de tipo colegio / organizacion  y a su vez es de carácter publico-privado-mixto.';
+COMMENT ON COLUMN terceros.tercero_tipo_tercero.id IS 'Identificador unico de la tabla tercero_tipo_tercero.';
+COMMENT ON COLUMN terceros.tercero_tipo_tercero.tercero_id IS 'Identificador unico de la tabla tercero.';
+COMMENT ON COLUMN terceros.tercero_tipo_tercero.tipo_tercero_id IS 'Identificador unico de la tabla tipo_tercero.';
+COMMENT ON COLUMN terceros.tercero_tipo_tercero.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';
+COMMENT ON COLUMN terceros.tercero_tipo_tercero.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';
+COMMENT ON COLUMN terceros.tercero_tipo_tercero.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';
 
 
 
@@ -225,6 +252,7 @@ CREATE TABLE terceros.datos_identificacion(
 	ciudad_expedicion integer,
 	fecha_expedicion TIMESTAMP,
 	activo boolean NOT NULL,
+	documento_soporte integer,
 	fecha_creacion TIMESTAMP NOT NULL,
 	fecha_modificacion TIMESTAMP NOT NULL,
 	CONSTRAINT pk_datos_identificacion PRIMARY KEY (id),
@@ -240,6 +268,7 @@ COMMENT ON COLUMN terceros.datos_identificacion.digito_verificacion IS 'Dígito 
 COMMENT ON COLUMN terceros.datos_identificacion.ciudad_expedicion IS 'Valor que almacena el ID de la ciudad en que fue expedido el documento.';
 COMMENT ON COLUMN terceros.datos_identificacion.fecha_expedicion IS 'Fecha en la que fue expedido el documento de identificación.';
 COMMENT ON COLUMN terceros.datos_identificacion.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';
+COMMENT ON COLUMN terceros.datos_identificacion.documento_soporte IS 'Identificador asociado al soporte del documento, correspondiente para el tercero.';
 COMMENT ON COLUMN terceros.datos_identificacion.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';
 COMMENT ON COLUMN terceros.datos_identificacion.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';
 
