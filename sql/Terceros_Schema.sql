@@ -149,7 +149,7 @@ CREATE TABLE terceros.tipo_tercero(
 	fecha_modificacion TIMESTAMP NOT NULL,
 	CONSTRAINT pk_tipo_tercero PRIMARY KEY (id)
 );
-COMMENT ON TABLE terceros.tipo_tercero IS 'Tabla que parametriza a los tipos de terceros, sean: Personas/Empresas/Eps/Caja Compensacion/Arl/fondo de Pension entre otros.';
+COMMENT ON TABLE terceros.tipo_tercero IS 'Tabla que parametriza a los tipos de terceros, sean: Personas/Empresas/Eps/Caja Compensacion/Arl, Entidades de caracter Publico/Privado/Mixto entre otros.';
 COMMENT ON COLUMN terceros.tipo_tercero.id IS 'Identificador unico de la tabla tipo_tercero.';
 COMMENT ON COLUMN terceros.tipo_tercero.nombre IS 'Campo obligatorio de la tabla que indica el nombre del parámetro.';
 COMMENT ON COLUMN terceros.tipo_tercero.descripcion IS 'Campo en el que se puede registrar una descripcion de la informacion del tipo tercero.';
@@ -187,14 +187,24 @@ CREATE TABLE terceros.tercero(
 	fecha_nacimiento TIMESTAMP,
     activo boolean NOT NULL,
     tipo_contribuyente_id integer NOT NULL,
-    tercero_tipo_tercero_id integer NOT NULL,
 	fecha_creacion TIMESTAMP NOT NULL,
 	fecha_modificacion TIMESTAMP NOT NULL,    
 	CONSTRAINT pk_tercero PRIMARY KEY (id),
     CONSTRAINT fk_tipo_contribuyente_tercero FOREIGN KEY (tipo_contribuyente_id) REFERENCES terceros.tipo_contribuyente(id)
 );
 COMMENT ON TABLE terceros.tercero IS 'Tabla que parametriza los Tipos de contribuyentes: PersonaNatural - Persona Juridica';
-
+COMMENT ON COLUMN terceros.tercero.id IS 'Identificador unico de la tabla tercero.';
+COMMENT ON COLUMN terceros.tercero.nombre_completo IS 'Campo obligatorio de la tabla que indica el nombre de la persona natural o juridica';
+COMMENT ON COLUMN terceros.tercero.primer_nombre IS 'Primer nombre persona natural.';
+COMMENT ON COLUMN terceros.tercero.segundo_nombre IS 'Segundo nombre persona natural.';
+COMMENT ON COLUMN terceros.tercero.primer_apellido IS 'Primer apellido persona natural.';
+COMMENT ON COLUMN terceros.tercero.segundo_apellido IS 'Segundo apellido persona natural.';
+COMMENT ON COLUMN terceros.tercero.lugar_origen IS 'Id del pais de origen de la persona / empresa / entidad.';
+COMMENT ON COLUMN terceros.tercero.fecha_nacimiento IS 'Campo que indica la fecha de nacimiento de la persona natural / indica la fecha de creacion de la empresa.';
+COMMENT ON COLUMN terceros.tercero.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';
+COMMENT ON COLUMN terceros.tercero.tipo_contribuyente_id IS 'Identificador de la tabla tipo_contribuyente, diferencia entre persona_natural, persona_juridica.';
+COMMENT ON COLUMN terceros.tercero.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';
+COMMENT ON COLUMN terceros.tercero.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';
 
 
 --|||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||||
