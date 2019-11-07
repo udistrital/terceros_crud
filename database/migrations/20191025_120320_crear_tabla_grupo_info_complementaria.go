@@ -5,20 +5,20 @@ import (
 )
 
 // DO NOT MODIFY
-type CrearTablaGrupoInfoComplementaria_20191025_115951 struct {
+type CrearTablaGrupoInfoComplementaria_20191025_120320 struct {
 	migration.Migration
 }
 
 // DO NOT MODIFY
 func init() {
-	m := &CrearTablaGrupoInfoComplementaria_20191025_115951{}
-	m.Created = "20191025_115951"
+	m := &CrearTablaGrupoInfoComplementaria_20191025_120320{}
+	m.Created = "20191025_120320"
 
-	migration.Register("CrearTablaGrupoInfoComplementaria_20191025_115951", m)
+	migration.Register("CrearTablaGrupoInfoComplementaria_20191025_120320", m)
 }
 
 // Run the migrations
-func (m *CrearTablaGrupoInfoComplementaria_20191025_115951) Up() {
+func (m *CrearTablaGrupoInfoComplementaria_20191025_120320) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("CREATE TABLE IF NOT EXISTS terceros.grupo_info_complementaria( id serial NOT NULL, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_grupo_info_complementaria PRIMARY KEY (id) );")
 	m.SQL("ALTER TABLE terceros.grupo_info_complementaria OWNER TO desarrollooas;")
@@ -33,7 +33,7 @@ func (m *CrearTablaGrupoInfoComplementaria_20191025_115951) Up() {
 }
 
 // Reverse the migrations
-func (m *CrearTablaGrupoInfoComplementaria_20191025_115951) Down() {
+func (m *CrearTablaGrupoInfoComplementaria_20191025_120320) Down() {
 	// use m.SQL("DROP TABLE ...") to reverse schema update
 	m.SQL("DROP TABLE IF EXISTS terceros.grupo_info_complementaria")
 }
