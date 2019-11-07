@@ -20,7 +20,7 @@ func init() {
 // Run the migrations
 func (m *CrearTablaTipoTercero_20191025_120726) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
-	m.SQL("CREATE TABLE IF NOT EXISTS terceros.tipo_tercero( id serial NOT NULL DEFAULT, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_tipo_tercero PRIMARY KEY (id) );")
+	m.SQL("CREATE TABLE IF NOT EXISTS terceros.tipo_tercero( id serial NOT NULL, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_tipo_tercero PRIMARY KEY (id) );")
 	m.SQL("ALTER TABLE terceros.tipo_tercero OWNER TO desarrollooas;")
 	m.SQL("COMMENT ON TABLE terceros.tipo_tercero IS 'Tabla que parametriza a los tipos de terceros, sean: Personas/Empresas/Eps/Caja Compensacion/Arl, Entidades de caracter Publico/Privado/Mixto entre otros.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_tercero.id IS 'Identificador unico de la tabla tipo_tercero.';")
