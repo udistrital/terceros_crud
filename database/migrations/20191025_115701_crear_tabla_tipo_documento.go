@@ -5,20 +5,20 @@ import (
 )
 
 // DO NOT MODIFY
-type CrearTablaTipoDocumento_20191025_115661 struct {
+type CrearTablaTipoDocumento_20191025_115701 struct {
 	migration.Migration
 }
 
 // DO NOT MODIFY
 func init() {
-	m := &CrearTablaTipoDocumento_20191025_115661{}
-	m.Created = "20191025_115661"
+	m := &CrearTablaTipoDocumento_20191025_115701{}
+	m.Created = "20191025_115701"
 
-	migration.Register("CrearTablaTipoDocumento_20191025_115661", m)
+	migration.Register("CrearTablaTipoDocumento_20191025_115701", m)
 }
 
 // Run the migrations
-func (m *CrearTablaTipoDocumento_20191025_115661) Up() {
+func (m *CrearTablaTipoDocumento_20191025_115701) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("CREATE TABLE IF NOT EXISTS terceros.tipo_documento( id serial NOT NULL, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, numero_orden numeric(5,2), fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_tipo_documento PRIMARY KEY (id) );")
 	m.SQL("ALTER TABLE terceros.tipo_documento OWNER TO desarrollooas;")
@@ -34,7 +34,7 @@ func (m *CrearTablaTipoDocumento_20191025_115661) Up() {
 }
 
 // Reverse the migrations
-func (m *CrearTablaTipoDocumento_20191025_115661) Down() {
+func (m *CrearTablaTipoDocumento_20191025_115701) Down() {
 	// use m.SQL("DROP TABLE ...") to reverse schema update
 	m.SQL("DROP TABLE IF EXISTS terceros.tipo_documento")
 }
