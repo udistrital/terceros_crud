@@ -5,20 +5,20 @@ import (
 )
 
 // DO NOT MODIFY
-type CrearTablaTipoContribuyente_20191025_115702 struct {
+type CrearTablaTipoContribuyente_20191025_115710 struct {
 	migration.Migration
 }
 
 // DO NOT MODIFY
 func init() {
-	m := &CrearTablaTipoContribuyente_20191025_115702{}
-	m.Created = "20191025_115702"
+	m := &CrearTablaTipoContribuyente_20191025_115710{}
+	m.Created = "20191025_115710"
 
-	migration.Register("CrearTablaTipoContribuyente_20191025_115702", m)
+	migration.Register("CrearTablaTipoContribuyente_20191025_115710", m)
 }
 
 // Run the migrations
-func (m *CrearTablaTipoContribuyente_20191025_115702) Up() {
+func (m *CrearTablaTipoContribuyente_20191025_115710) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("CREATE TABLE IF NOT EXISTS terceros.tipo_contribuyente( id serial NOT NULL, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_tipo_contribuyente PRIMARY KEY (id) );")
 	m.SQL("ALTER TABLE terceros.tipo_contribuyente OWNER TO desarrollooas;")
@@ -33,7 +33,7 @@ func (m *CrearTablaTipoContribuyente_20191025_115702) Up() {
 }
 
 // Reverse the migrations
-func (m *CrearTablaTipoContribuyente_20191025_115702) Down() {
+func (m *CrearTablaTipoContribuyente_20191025_115710) Down() {
 	// use m.SQL("DROP TABLE ...") to reverse schema update
 	m.SQL("DROP TABLE IF EXISTS terceros.tipo_contribuyente")
 }
