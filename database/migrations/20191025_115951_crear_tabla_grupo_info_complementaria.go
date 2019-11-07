@@ -20,7 +20,7 @@ func init() {
 // Run the migrations
 func (m *CrearTablaGrupoInfoComplementaria_20191025_115951) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
-	m.SQL("CREATE TABLE IF NOT EXISTS terceros.grupo_info_complementaria( id serial NOT NULL DEFAULT, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_grupo_info_complementaria PRIMARY KEY (id) );")
+	m.SQL("CREATE TABLE IF NOT EXISTS terceros.grupo_info_complementaria( id serial NOT NULL, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_grupo_info_complementaria PRIMARY KEY (id) );")
 	m.SQL("ALTER TABLE terceros.grupo_info_complementaria OWNER TO desarrollooas;")
 	m.SQL("COMMENT ON TABLE terceros.grupo_info_complementaria IS 'Tabla que parametriza la información complementaria de un tercero que pueda ser relacionada a un mismo grupo o tipo como pueden ser: discapacidades, estados civiles, grupos sanguíneo, grupos étnicos, géneros entre otros. También se requiere un grupo para valores cuyos datos internos no van a ser parametrizados.';")
 	m.SQL("COMMENT ON COLUMN terceros.grupo_info_complementaria.nombre IS 'Campo obligatorio de la tabla que indica el nombre del parámetro.';")
