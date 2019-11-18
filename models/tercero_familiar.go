@@ -48,9 +48,11 @@ func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) 
 	o := orm.NewOrm()
 	err = o.Begin()
 
+	date := time.Now()
+
 	m.Tercero_Familiar.Activo = true
-	m.Tercero_Familiar.FechaCreacion = time.Now()
-	m.Tercero_Familiar.FechaModificacion = time.Now()
+	m.Tercero_Familiar.FechaCreacion = date
+	m.Tercero_Familiar.FechaModificacion = date
 	
 	if idTercero, errTr := o.Insert(m.Tercero_Familiar); errTr == nil {
 		fmt.Println("Tercero registrado", idTercero)
@@ -59,8 +61,8 @@ func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) 
 			v.TerceroId.Id = int(idTercero)
 
 			v.TerceroFamiliarId.Activo = true
-			v.TerceroFamiliarId.FechaCreacion = time.Now()
-			v.TerceroFamiliarId.FechaModificacion = time.Now()
+			v.TerceroFamiliarId.FechaCreacion = date
+			v.TerceroFamiliarId.FechaModificacion = date
 
 			if idFamiliar, errTr := o.Insert(v.TerceroFamiliarId); errTr == nil {
 				fmt.Println("Familiar registrado", idFamiliar)
@@ -71,6 +73,10 @@ func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) 
 				_ = o.Rollback()
 				return
 			}
+
+			v.Activo = true
+			v.FechaCreacion = date
+			v.FechaModificacion = date
 
 			if _, errTr = o.Insert(&v); errTr == nil {
 				fmt.Println("Relación Tercero-Familiar registrado")
