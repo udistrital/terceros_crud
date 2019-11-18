@@ -21,6 +21,11 @@ type TerceroFamiliar struct {
 	FechaModificacion time.Time       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
+type TrPostInformacionFamiliar struct {
+	Tercero_Familiar 	*Tercero
+	Familiares  		*[]TerceroFamiliar
+}
+
 func (t *TerceroFamiliar) TableName() string {
 	return "tercero_familiar"
 }
@@ -34,6 +39,55 @@ func init() {
 func AddTerceroFamiliar(m *TerceroFamiliar) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
+	return
+}
+
+// TrPostInformacionFamiliar transaction to insert all information
+// last inserted Id on success.
+func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) {
+	o := orm.NewOrm()
+	err = o.Begin()
+
+	m.Tercero_Familiar.Activo = true
+	m.Tercero_Familiar.FechaCreacion = time.Now()
+	m.Tercero_Familiar.FechaModificacion = time.Now()
+	
+	if idTercero, errTr := o.Insert(m.Tercero_Familiar); errTr == nil {
+		fmt.Println("Tercero registrado", idTercero)
+
+		for _, v := range *m.Familiares {
+			v.TerceroId.Id = int(idTercero)
+
+			v.TerceroFamiliarId.Activo = true
+			v.TerceroFamiliarId.FechaCreacion = time.Now()
+			v.TerceroFamiliarId.FechaModificacion = time.Now()
+
+			if idFamiliar, errTr := o.Insert(v.TerceroFamiliarId); errTr == nil {
+				fmt.Println("Familiar registrado", idFamiliar)
+				v.TerceroFamiliarId.Id = int(idFamiliar)
+			} else {
+				err = errTr
+				fmt.Println(err)
+				_ = o.Rollback()
+				return
+			}
+
+			if _, errTr = o.Insert(&v); errTr == nil {
+				fmt.Println("Relación Tercero-Familiar registrado")
+			} else {
+				err = errTr
+				fmt.Println(err)
+				_ = o.Rollback()
+				return
+			}
+		}
+
+		_ = o.Commit()
+	} else {
+		err = errTr
+		fmt.Println(err)
+		_ = o.Rollback()
+	}
 	return
 }
 

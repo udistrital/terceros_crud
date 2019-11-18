@@ -48,8 +48,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.DatosIdentificacion'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - datos_identificacion
@@ -65,8 +65,8 @@ paths:
       responses:
         "201":
           description: '{int} models.DatosIdentificacion'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /datos_identificacion/{id}:
     get:
       tags:
@@ -84,8 +84,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.DatosIdentificacion'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - datos_identificacion
@@ -108,8 +108,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.DatosIdentificacion'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - datos_identificacion
@@ -124,8 +124,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /grupo_info_complementaria/:
     get:
       tags:
@@ -163,8 +163,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.GrupoInfoComplementaria'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - grupo_info_complementaria
@@ -180,8 +180,8 @@ paths:
       responses:
         "201":
           description: '{int} models.GrupoInfoComplementaria'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /grupo_info_complementaria/{id}:
     get:
       tags:
@@ -199,8 +199,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.GrupoInfoComplementaria'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - grupo_info_complementaria
@@ -223,8 +223,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.GrupoInfoComplementaria'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - grupo_info_complementaria
@@ -239,8 +239,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /info_complementaria/:
     get:
       tags:
@@ -278,8 +278,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.InfoComplementaria'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - info_complementaria
@@ -295,8 +295,8 @@ paths:
       responses:
         "201":
           description: '{int} models.InfoComplementaria'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /info_complementaria/{id}:
     get:
       tags:
@@ -314,8 +314,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.InfoComplementaria'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - info_complementaria
@@ -338,8 +338,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.InfoComplementaria'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - info_complementaria
@@ -354,8 +354,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /info_complementaria_tercero/:
     get:
       tags:
@@ -393,8 +393,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.InfoComplementariaTercero'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - info_complementaria_tercero
@@ -410,8 +410,8 @@ paths:
       responses:
         "201":
           description: '{int} models.InfoComplementariaTercero'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /info_complementaria_tercero/{id}:
     get:
       tags:
@@ -429,8 +429,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.InfoComplementariaTercero'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - info_complementaria_tercero
@@ -453,8 +453,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.InfoComplementariaTercero'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - info_complementaria_tercero
@@ -469,8 +469,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /seguridad_social_tercero/:
     get:
       tags:
@@ -508,8 +508,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.SeguridadSocialTercero'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - seguridad_social_tercero
@@ -525,8 +525,8 @@ paths:
       responses:
         "201":
           description: '{int} models.SeguridadSocialTercero'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /seguridad_social_tercero/{id}:
     get:
       tags:
@@ -544,8 +544,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.SeguridadSocialTercero'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - seguridad_social_tercero
@@ -568,8 +568,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.SeguridadSocialTercero'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - seguridad_social_tercero
@@ -584,8 +584,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /tercero/:
     get:
       tags:
@@ -623,8 +623,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Tercero'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tercero
@@ -640,8 +640,8 @@ paths:
       responses:
         "201":
           description: '{int} models.Tercero'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tercero/{id}:
     get:
       tags:
@@ -659,8 +659,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Tercero'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tercero
@@ -683,8 +683,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.Tercero'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tercero
@@ -699,8 +699,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /tercero_familiar/:
     get:
       tags:
@@ -738,8 +738,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TerceroFamiliar'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tercero_familiar
@@ -755,8 +755,8 @@ paths:
       responses:
         "201":
           description: '{int} models.TerceroFamiliar'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tercero_familiar/{id}:
     get:
       tags:
@@ -774,8 +774,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TerceroFamiliar'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tercero_familiar
@@ -798,8 +798,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TerceroFamiliar'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tercero_familiar
@@ -814,8 +814,26 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
+  /tercero_familiar/informacion_familiar:
+    post:
+      tags:
+      - tercero_familiar
+      description: create PostInformacionFamiliar
+      operationId: TerceroFamiliarController.PostInformacionFamiliar
+      parameters:
+      - in: body
+        name: body
+        description: body for PostInformacionFamiliar content
+        required: true
+        schema:
+          $ref: '#/definitions/models.PostInformacionFamiliar'
+      responses:
+        "201":
+          description: '{int} models.TrPostInformacionFamiliar'
+        "400":
+          description: the request contains incorrect syntax
   /tercero_tipo_tercero/:
     get:
       tags:
@@ -853,8 +871,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TerceroTipoTercero'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tercero_tipo_tercero
@@ -870,8 +888,8 @@ paths:
       responses:
         "201":
           description: '{int} models.TerceroTipoTercero'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tercero_tipo_tercero/{id}:
     get:
       tags:
@@ -889,8 +907,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TerceroTipoTercero'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tercero_tipo_tercero
@@ -913,8 +931,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TerceroTipoTercero'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tercero_tipo_tercero
@@ -929,8 +947,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /tipo_contribuyente/:
     get:
       tags:
@@ -968,8 +986,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoContribuyente'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tipo_contribuyente
@@ -985,8 +1003,8 @@ paths:
       responses:
         "201":
           description: '{int} models.TipoContribuyente'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tipo_contribuyente/{id}:
     get:
       tags:
@@ -1004,8 +1022,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoContribuyente'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tipo_contribuyente
@@ -1028,8 +1046,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoContribuyente'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tipo_contribuyente
@@ -1044,8 +1062,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /tipo_documento/:
     get:
       tags:
@@ -1083,8 +1101,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoDocumento'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tipo_documento
@@ -1100,8 +1118,8 @@ paths:
       responses:
         "201":
           description: '{int} models.TipoDocumento'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tipo_documento/{id}:
     get:
       tags:
@@ -1119,8 +1137,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoDocumento'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tipo_documento
@@ -1143,8 +1161,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoDocumento'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tipo_documento
@@ -1159,8 +1177,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /tipo_parentesco/:
     get:
       tags:
@@ -1198,8 +1216,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoParentesco'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tipo_parentesco
@@ -1215,8 +1233,8 @@ paths:
       responses:
         "201":
           description: '{int} models.TipoParentesco'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tipo_parentesco/{id}:
     get:
       tags:
@@ -1234,8 +1252,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoParentesco'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tipo_parentesco
@@ -1258,8 +1276,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoParentesco'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tipo_parentesco
@@ -1274,8 +1292,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
   /tipo_tercero/:
     get:
       tags:
@@ -1313,8 +1331,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoTercero'
-        "403":
-          description: ""
+        "404":
+          description: not found resource
     post:
       tags:
       - tipo_tercero
@@ -1330,8 +1348,8 @@ paths:
       responses:
         "201":
           description: '{int} models.TipoTercero'
-        "403":
-          description: body is empty
+        "400":
+          description: the request contains incorrect syntax
   /tipo_tercero/{id}:
     get:
       tags:
@@ -1349,8 +1367,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoTercero'
-        "403":
-          description: :id is empty
+        "404":
+          description: not found resource
     put:
       tags:
       - tipo_tercero
@@ -1373,8 +1391,8 @@ paths:
           description: ""
           schema:
             $ref: '#/definitions/models.TipoTercero'
-        "403":
-          description: :id is not int
+        "400":
+          description: the request contains incorrect syntax
     delete:
       tags:
       - tipo_tercero
@@ -1389,8 +1407,8 @@ paths:
       responses:
         "200":
           description: '{string} delete success!'
-        "403":
-          description: id is empty
+        "404":
+          description: not found resource
 definitions:
   models.DatosIdentificacion:
     title: DatosIdentificacion
@@ -1409,13 +1427,13 @@ definitions:
         format: int64
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaExpedicion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1437,10 +1455,10 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1456,10 +1474,10 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       GrupoInfoComplementariaId:
         $ref: '#/definitions/models.GrupoInfoComplementaria'
       Id:
@@ -1479,10 +1497,10 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1490,6 +1508,9 @@ definitions:
         $ref: '#/definitions/models.InfoComplementaria'
       TerceroId:
         $ref: '#/definitions/models.Tercero'
+  models.PostInformacionFamiliar:
+    title: PostInformacionFamiliar
+    type: object
   models.SeguridadSocialTercero:
     title: SeguridadSocialTercero
     type: object
@@ -1498,16 +1519,16 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaFinVinculacion:
         type: string
-        format: string
+        format: datetime
       FechaInicioVinculacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1523,13 +1544,13 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       FechaNacimiento:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1558,10 +1579,10 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1579,10 +1600,10 @@ definitions:
         type: boolean
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1602,10 +1623,10 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1623,10 +1644,10 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1647,10 +1668,10 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
@@ -1668,10 +1689,10 @@ definitions:
         type: string
       FechaCreacion:
         type: string
-        format: string
+        format: datetime
       FechaModificacion:
         type: string
-        format: string
+        format: datetime
       Id:
         type: integer
         format: int64
