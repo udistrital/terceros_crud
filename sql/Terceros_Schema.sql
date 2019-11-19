@@ -445,3 +445,9 @@ COMMENT ON COLUMN terceros.tercero_familiar.codigo_abreviacion IS 'Código de ab
 COMMENT ON COLUMN terceros.tercero_familiar.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';
 COMMENT ON COLUMN terceros.tercero_familiar.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';
 COMMENT ON COLUMN terceros.tercero_familiar.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';
+
+
+
+ALTER TABLE terceros.tercero ADD usuario_wso2 character varying(20);
+COMMENT ON COLUMN terceros.tercero.usuario_wso2 IS 'Campo opcional para guardar el usuario de WSO2 de una persona_natural.';
+

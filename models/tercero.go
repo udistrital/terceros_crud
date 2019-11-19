@@ -23,6 +23,7 @@ type Tercero struct {
 	TipoContribuyenteId *TipoContribuyente `orm:"column(tipo_contribuyente_id);rel(fk)"`
 	FechaCreacion       time.Time          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion   time.Time          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	UsuarioWSO2			string			   `orm:"column(usuario_wso2);null"`
 }
 
 func (t *Tercero) TableName() string {
