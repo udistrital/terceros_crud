@@ -94,6 +94,24 @@ func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) 
 				_ = o.Rollback()
 				return
 			}
+
+			for _, dato := range *v.InformacionContacto {
+
+				dato.TerceroId.Id = familiar.TerceroFamiliarId.Id
+				dato.Activo = true
+			  dato.FechaCreacion = date
+			  dato.FechaModificacion = date
+
+				if _, errTr = o.Insert(&dato); errTr == nil {
+					fmt.Println("dato de contacto registrado", dato.Dato)
+				} else {
+					err = errTr
+					fmt.Println(err)
+					_ = o.Rollback()
+					return
+				}
+			}
+
 		}
 
 		_ = o.Commit()
