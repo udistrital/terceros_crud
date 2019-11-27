@@ -21,9 +21,14 @@ type TerceroFamiliar struct {
 	FechaModificacion time.Time       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
+type TerceroFamiliarConInfoComplementaria struct {
+	Familiar            *TerceroFamiliar
+	InformacionContacto *[]InfoComplementariaTercero
+}
+
 type TrPostInformacionFamiliar struct {
-	Tercero_Familiar 	*Tercero
-	Familiares  		*[]TerceroFamiliar
+	Tercero_Familiar *Tercero
+	Familiares  		 *[]TerceroFamiliarConInfoComplementaria
 }
 
 func (t *TerceroFamiliar) TableName() string {
@@ -58,15 +63,18 @@ func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) 
 		fmt.Println("Tercero registrado", idTercero)
 
 		for _, v := range *m.Familiares {
-			v.TerceroId.Id = int(idTercero)
 
-			v.TerceroFamiliarId.Activo = true
-			v.TerceroFamiliarId.FechaCreacion = date
-			v.TerceroFamiliarId.FechaModificacion = date
+			familiar := v.Familiar
 
-			if idFamiliar, errTr := o.Insert(v.TerceroFamiliarId); errTr == nil {
+			familiar.TerceroId.Id = int(idTercero)
+
+			familiar.TerceroFamiliarId.Activo = true
+			familiar.TerceroFamiliarId.FechaCreacion = date
+			familiar.TerceroFamiliarId.FechaModificacion = date
+
+			if idFamiliar, errTr := o.Insert(familiar.TerceroFamiliarId); errTr == nil {
 				fmt.Println("Familiar registrado", idFamiliar)
-				v.TerceroFamiliarId.Id = int(idFamiliar)
+				familiar.TerceroFamiliarId.Id = int(idFamiliar)
 			} else {
 				err = errTr
 				fmt.Println(err)
@@ -74,11 +82,11 @@ func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) 
 				return
 			}
 
-			v.Activo = true
-			v.FechaCreacion = date
-			v.FechaModificacion = date
+			familiar.Activo = true
+			familiar.FechaCreacion = date
+			familiar.FechaModificacion = date
 
-			if _, errTr = o.Insert(&v); errTr == nil {
+			if _, errTr = o.Insert(familiar); errTr == nil {
 				fmt.Println("Relación Tercero-Familiar registrado")
 			} else {
 				err = errTr
