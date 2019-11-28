@@ -138,3 +138,10 @@ INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, gr
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('CORREO', 'CORREO', TRUE, 10, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('DIRECCIÓN', 'DIRECCIÓN', TRUE, 10, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('CODIGO_POSTAL', 'CODIGO_POSTAL', TRUE, 10, LOCALTIMESTAMP, LOCALTIMESTAMP);
+
+
+-28N
+
+INSERT INTO terceros.grupo_info_complementaria (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (11, 'Información Adicional', 'Información Adicional.', 'Grupo_11', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('DESCRIPCIÓN', 'DESCRIPCIÓN', TRUE, 6, LOCALTIMESTAMP, LOCALTIMESTAMP);
+información adicional descripción 
