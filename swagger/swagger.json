@@ -67,8 +67,8 @@
                             "$ref": "#/definitions/models.DatosIdentificacion"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -93,8 +93,8 @@
                     "201": {
                         "description": "{int} models.DatosIdentificacion"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -122,8 +122,8 @@
                             "$ref": "#/definitions/models.DatosIdentificacion"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -158,8 +158,8 @@
                             "$ref": "#/definitions/models.DatosIdentificacion"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -182,8 +182,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -240,8 +240,8 @@
                             "$ref": "#/definitions/models.GrupoInfoComplementaria"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -266,8 +266,8 @@
                     "201": {
                         "description": "{int} models.GrupoInfoComplementaria"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -295,8 +295,8 @@
                             "$ref": "#/definitions/models.GrupoInfoComplementaria"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -331,8 +331,8 @@
                             "$ref": "#/definitions/models.GrupoInfoComplementaria"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -355,8 +355,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -413,8 +413,8 @@
                             "$ref": "#/definitions/models.InfoComplementaria"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -439,8 +439,8 @@
                     "201": {
                         "description": "{int} models.InfoComplementaria"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -468,8 +468,8 @@
                             "$ref": "#/definitions/models.InfoComplementaria"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -504,8 +504,8 @@
                             "$ref": "#/definitions/models.InfoComplementaria"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -528,8 +528,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -586,8 +586,8 @@
                             "$ref": "#/definitions/models.InfoComplementariaTercero"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -612,8 +612,8 @@
                     "201": {
                         "description": "{int} models.InfoComplementariaTercero"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -641,8 +641,8 @@
                             "$ref": "#/definitions/models.InfoComplementariaTercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -677,8 +677,8 @@
                             "$ref": "#/definitions/models.InfoComplementariaTercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -701,8 +701,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -759,8 +759,8 @@
                             "$ref": "#/definitions/models.SeguridadSocialTercero"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -785,8 +785,8 @@
                     "201": {
                         "description": "{int} models.SeguridadSocialTercero"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -814,8 +814,8 @@
                             "$ref": "#/definitions/models.SeguridadSocialTercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -850,8 +850,8 @@
                             "$ref": "#/definitions/models.SeguridadSocialTercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -874,8 +874,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -932,8 +932,8 @@
                             "$ref": "#/definitions/models.Tercero"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -958,8 +958,8 @@
                     "201": {
                         "description": "{int} models.Tercero"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -987,8 +987,8 @@
                             "$ref": "#/definitions/models.Tercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1023,8 +1023,8 @@
                             "$ref": "#/definitions/models.Tercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -1047,8 +1047,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -1105,8 +1105,8 @@
                             "$ref": "#/definitions/models.TerceroFamiliar"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1131,8 +1131,36 @@
                     "201": {
                         "description": "{int} models.TerceroFamiliar"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
+                    }
+                }
+            }
+        },
+        "/tercero_familiar/informacion_familiar": {
+            "post": {
+                "tags": [
+                    "tercero_familiar"
+                ],
+                "description": "create PostInformacionFamiliar",
+                "operationId": "TerceroFamiliarController.PostInformacionFamiliar",
+                "parameters": [
+                    {
+                        "in": "body",
+                        "name": "body",
+                        "description": "body for PostInformacionFamiliar content",
+                        "required": true,
+                        "schema": {
+                            "$ref": "#/definitions/models.PostInformacionFamiliar"
+                        }
+                    }
+                ],
+                "responses": {
+                    "201": {
+                        "description": "{int} models.TrPostInformacionFamiliar"
+                    },
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -1160,8 +1188,8 @@
                             "$ref": "#/definitions/models.TerceroFamiliar"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1196,8 +1224,8 @@
                             "$ref": "#/definitions/models.TerceroFamiliar"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -1220,8 +1248,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -1278,8 +1306,8 @@
                             "$ref": "#/definitions/models.TerceroTipoTercero"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1304,8 +1332,8 @@
                     "201": {
                         "description": "{int} models.TerceroTipoTercero"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -1333,8 +1361,8 @@
                             "$ref": "#/definitions/models.TerceroTipoTercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1369,8 +1397,8 @@
                             "$ref": "#/definitions/models.TerceroTipoTercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -1393,8 +1421,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -1451,8 +1479,8 @@
                             "$ref": "#/definitions/models.TipoContribuyente"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1477,8 +1505,8 @@
                     "201": {
                         "description": "{int} models.TipoContribuyente"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -1506,8 +1534,8 @@
                             "$ref": "#/definitions/models.TipoContribuyente"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1542,8 +1570,8 @@
                             "$ref": "#/definitions/models.TipoContribuyente"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -1566,8 +1594,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -1624,8 +1652,8 @@
                             "$ref": "#/definitions/models.TipoDocumento"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1650,8 +1678,8 @@
                     "201": {
                         "description": "{int} models.TipoDocumento"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -1679,8 +1707,8 @@
                             "$ref": "#/definitions/models.TipoDocumento"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1715,8 +1743,8 @@
                             "$ref": "#/definitions/models.TipoDocumento"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -1739,8 +1767,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -1797,8 +1825,8 @@
                             "$ref": "#/definitions/models.TipoParentesco"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1823,8 +1851,8 @@
                     "201": {
                         "description": "{int} models.TipoParentesco"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -1852,8 +1880,8 @@
                             "$ref": "#/definitions/models.TipoParentesco"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1888,8 +1916,8 @@
                             "$ref": "#/definitions/models.TipoParentesco"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -1912,8 +1940,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -1970,8 +1998,8 @@
                             "$ref": "#/definitions/models.TipoTercero"
                         }
                     },
-                    "403": {
-                        "description": ""
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -1996,8 +2024,8 @@
                     "201": {
                         "description": "{int} models.TipoTercero"
                     },
-                    "403": {
-                        "description": "body is empty"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             }
@@ -2025,8 +2053,8 @@
                             "$ref": "#/definitions/models.TipoTercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             },
@@ -2061,8 +2089,8 @@
                             "$ref": "#/definitions/models.TipoTercero"
                         }
                     },
-                    "403": {
-                        "description": ":id is not int"
+                    "400": {
+                        "description": "the request contains incorrect syntax"
                     }
                 }
             },
@@ -2085,8 +2113,8 @@
                     "200": {
                         "description": "{string} delete success!"
                     },
-                    "403": {
-                        "description": "id is empty"
+                    "404": {
+                        "description": "not found resource"
                     }
                 }
             }
@@ -2114,15 +2142,15 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaExpedicion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2154,11 +2182,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2181,11 +2209,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "GrupoInfoComplementariaId": {
                     "$ref": "#/definitions/models.GrupoInfoComplementaria"
@@ -2214,11 +2242,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2232,6 +2260,10 @@
                 }
             }
         },
+        "models.PostInformacionFamiliar": {
+            "title": "PostInformacionFamiliar",
+            "type": "object"
+        },
         "models.SeguridadSocialTercero": {
             "title": "SeguridadSocialTercero",
             "type": "object",
@@ -2241,19 +2273,19 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaFinVinculacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaInicioVinculacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2276,15 +2308,15 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaNacimiento": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2326,11 +2358,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2356,11 +2388,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2389,11 +2421,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2419,11 +2451,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2453,11 +2485,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
@@ -2483,11 +2515,11 @@
                 },
                 "FechaCreacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "FechaModificacion": {
                     "type": "string",
-                    "format": "string"
+                    "format": "datetime"
                 },
                 "Id": {
                     "type": "integer",
