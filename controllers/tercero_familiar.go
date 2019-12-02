@@ -20,6 +20,7 @@ type TerceroFamiliarController struct {
 // URLMapping ...
 func (c *TerceroFamiliarController) URLMapping() {
 	c.Mapping("Post", c.Post)
+	c.Mapping("PostInformacionFamiliar", c.PostInformacionFamiliar)
 	c.Mapping("GetOne", c.GetOne)
 	c.Mapping("GetAll", c.GetAll)
 	c.Mapping("Put", c.Put)
@@ -37,6 +38,34 @@ func (c *TerceroFamiliarController) Post() {
 	var v models.TerceroFamiliar
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		if _, err := models.AddTerceroFamiliar(&v); err == nil {
+			c.Ctx.Output.SetStatus(201)
+			c.Data["json"] = v
+		} else {
+			logs.Error(err)
+			//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+			c.Data["system"] = err
+			c.Abort("400")
+		}
+	} else {
+		logs.Error(err)
+		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
+		c.Data["system"] = err
+		c.Abort("400")
+	}
+	c.ServeJSON()
+}
+
+// PostInformacionFamiliar ...
+// @Title PostInformacionFamiliar
+// @Description create PostInformacionFamiliar
+// @Param	body		body 	models.PostInformacionFamiliar	true		"body for PostInformacionFamiliar content"
+// @Success 201 {int} models.TrPostInformacionFamiliar
+// @Failure 400 the request contains incorrect syntax
+// @router /informacion_familiar [post]
+func (c *TerceroFamiliarController) PostInformacionFamiliar() {
+	var v models.TrPostInformacionFamiliar
+	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		if _, err := models.AddInformacionFamiliar(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
 		} else {
