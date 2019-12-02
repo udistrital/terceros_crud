@@ -360,4 +360,4 @@ WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contri
 
 
 
-
+.-.
