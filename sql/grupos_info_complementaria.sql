@@ -359,5 +359,11 @@ WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contri
 WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contribuyente_id, fecha_creacion, fecha_modificacion) VALUES ('EPS Unisalud', TRUE, (SELECT id FROM terceros.tipo_contribuyente WHERE codigo_abreviacion = 'P_JURIDICA'), LOCALTIMESTAMP, LOCALTIMESTAMP) RETURNING id AS user_id ) , ins2 AS ( INSERT INTO terceros.datos_identificacion(tipo_documento_id, tercero_id, numero, activo, fecha_creacion, fecha_modificacion) SELECT (SELECT id FROM terceros.tipo_documento WHERE codigo_abreviacion = 'NIT'), user_id, '860010783', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1 ) INSERT INTO terceros.tercero_tipo_tercero(tercero_id, tipo_tercero_id, activo, fecha_creacion, fecha_modificacion) SELECT user_id, (SELECT id FROM terceros.tipo_tercero WHERE codigo_abreviacion = 'EPS'), TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1;
 
 
+-4D
+
+INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('LUGAR_RESIDENCIA', 'LUGAR_RESIDENCIA', TRUE, 10, LOCALTIMESTAMP, LOCALTIMESTAMP);
+
+
+
 
 .-.
