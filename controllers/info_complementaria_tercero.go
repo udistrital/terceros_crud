@@ -160,6 +160,11 @@ func (c *InfoComplementariaTerceroController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.InfoComplementariaTercero{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		infoAd, _ := models.GetInfoComplementariaTerceroById(id)
+		if infoAd != nil {
+			v.FechaCreacion = time_bogota.TiempoCorreccionFormato(infoAd.FechaCreacion)
+			v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+		}
 		if err := models.UpdateInfoComplementariaTerceroById(&v); err == nil {
 			c.Data["json"] = v
 		} else {

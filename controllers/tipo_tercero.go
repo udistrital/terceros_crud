@@ -160,6 +160,11 @@ func (c *TipoTerceroController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.TipoTercero{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		infoAd, _ := models.GetTipoTerceroById(id)
+		if infoAd != nil {
+			v.FechaCreacion = time_bogota.TiempoCorreccionFormato(infoAd.FechaCreacion)
+			v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+		}
 		if err := models.UpdateTipoTerceroById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
