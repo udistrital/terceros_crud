@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
-
 	"github.com/astaxie/beego/orm"
 )
 
@@ -17,8 +15,8 @@ type InfoComplementaria struct {
 	Activo                    bool                     `orm:"column(activo)"`
 	TipoDeDato                string                   `orm:"column(tipo_de_dato);null"`
 	GrupoInfoComplementariaId *GrupoInfoComplementaria `orm:"column(grupo_info_complementaria_id);rel(fk)"`
-	FechaCreacion             time.Time                `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion         time.Time                `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion             string                `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion         string                `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *InfoComplementaria) TableName() string {

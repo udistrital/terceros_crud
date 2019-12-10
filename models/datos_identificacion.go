@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
-
 	"github.com/astaxie/beego/orm"
 )
 
@@ -17,11 +15,11 @@ type DatosIdentificacion struct {
 	Numero             string         `orm:"column(numero)"`
 	DigitoVerificacion float64        `orm:"column(digito_verificacion);null"`
 	CiudadExpedicion   int            `orm:"column(ciudad_expedicion);null"`
-	FechaExpedicion    time.Time      `orm:"column(fecha_expedicion);type(timestamp without time zone);null"`
+	FechaExpedicion    string      `orm:"column(fecha_expedicion);type(timestamp without time zone);null"`
 	Activo             bool           `orm:"column(activo)"`
 	DocumentoSoporte   int            `orm:"column(documento_soporte);null"`
-	FechaCreacion      time.Time      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion  time.Time      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion      string	      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion  string      `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *DatosIdentificacion) TableName() string {

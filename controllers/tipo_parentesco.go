@@ -5,9 +5,8 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-	"time"
 	"github.com/udistrital/terceros_crud/models"
-
+	"github.com/udistrital/utils_oas/time_bogota"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 )
@@ -36,8 +35,8 @@ func (c *TipoParentescoController) URLMapping() {
 func (c *TipoParentescoController) Post() {
 	var v models.TipoParentesco
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
-		v.FechaCreacion = time.Now()
-		v.FechaModificacion = time.Now()
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddTipoParentesco(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
