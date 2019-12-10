@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-
+	"github.com/udistrital/utils_oas/time_bogota"
 	"github.com/udistrital/terceros_crud/models"
 
 	"github.com/astaxie/beego"
@@ -36,6 +36,8 @@ func (c *InfoComplementariaController) URLMapping() {
 func (c *InfoComplementariaController) Post() {
 	var v models.InfoComplementaria
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddInfoComplementaria(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
@@ -158,6 +160,11 @@ func (c *InfoComplementariaController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.InfoComplementaria{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		infoAd, _ := models.GetInfoComplementariaById(id)
+		if infoAd != nil {
+			v.FechaCreacion = time_bogota.TiempoCorreccionFormato(infoAd.FechaCreacion)
+			v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+		}
 		if err := models.UpdateInfoComplementariaById(&v); err == nil {
 			c.Data["json"] = v
 		} else {

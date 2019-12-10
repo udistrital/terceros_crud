@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
-
 	"github.com/astaxie/beego/orm"
 )
 
@@ -18,11 +16,11 @@ type Tercero struct {
 	PrimerApellido      string             `orm:"column(primer_apellido);null"`
 	SegundoApellido     string             `orm:"column(segundo_apellido);null"`
 	LugarOrigen         int                `orm:"column(lugar_origen);null"`
-	FechaNacimiento     time.Time          `orm:"column(fecha_nacimiento);type(timestamp without time zone);null"`
+	FechaNacimiento     string          `orm:"column(fecha_nacimiento);type(timestamp without time zone);null"`
 	Activo              bool               `orm:"column(activo)"`
 	TipoContribuyenteId *TipoContribuyente `orm:"column(tipo_contribuyente_id);rel(fk)"`
-	FechaCreacion       time.Time          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   time.Time          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion       string          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   string          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	UsuarioWSO2			string			   `orm:"column(usuario_wso2);null"`
 }
 

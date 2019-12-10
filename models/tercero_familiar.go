@@ -5,9 +5,8 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
-
 	"github.com/astaxie/beego/orm"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 type TerceroFamiliar struct {
@@ -17,8 +16,8 @@ type TerceroFamiliar struct {
 	TipoParentescoId  *TipoParentesco `orm:"column(tipo_parentesco_id);rel(fk)"`
 	CodigoAbreviacion string          `orm:"column(codigo_abreviacion);null"`
 	Activo            bool            `orm:"column(activo)"`
-	FechaCreacion     time.Time       `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion time.Time       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     string       `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 type TerceroFamiliarConInfoComplementaria struct {
@@ -53,7 +52,7 @@ func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) 
 	o := orm.NewOrm()
 	err = o.Begin()
 
-	date := time.Now()
+	date := time_bogota.TiempoBogotaFormato()
 
 	m.Tercero_Familiar.Activo = true
 	m.Tercero_Familiar.FechaCreacion = date
