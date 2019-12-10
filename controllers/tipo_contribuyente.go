@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-
+	"time"
 	"github.com/udistrital/terceros_crud/models"
 
 	"github.com/astaxie/beego"
@@ -36,6 +36,8 @@ func (c *TipoContribuyenteController) URLMapping() {
 func (c *TipoContribuyenteController) Post() {
 	var v models.TipoContribuyente
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time.Now()
+		v.FechaModificacion = time.Now()
 		if _, err := models.AddTipoContribuyente(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v

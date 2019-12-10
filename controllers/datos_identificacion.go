@@ -7,7 +7,7 @@ import (
 	"strings"
 
 	"github.com/udistrital/terceros_crud/models"
-
+	"time"
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
 )
@@ -36,6 +36,8 @@ func (c *DatosIdentificacionController) URLMapping() {
 func (c *DatosIdentificacionController) Post() {
 	var v models.DatosIdentificacion
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time.Now()
+		v.FechaModificacion = time.Now()
 		if _, err := models.AddDatosIdentificacion(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v

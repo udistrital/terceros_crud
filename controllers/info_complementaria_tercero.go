@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-
+	"time"
 	"github.com/udistrital/terceros_crud/models"
 
 	"github.com/astaxie/beego"
@@ -36,6 +36,8 @@ func (c *InfoComplementariaTerceroController) URLMapping() {
 func (c *InfoComplementariaTerceroController) Post() {
 	var v models.InfoComplementariaTercero
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time.Now()
+		v.FechaModificacion = time.Now()
 		if _, err := models.AddInfoComplementariaTercero(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
