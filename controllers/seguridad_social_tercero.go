@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-
+	"github.com/udistrital/utils_oas/time_bogota"
 	"github.com/udistrital/terceros_crud/models"
 
 	"github.com/astaxie/beego"
@@ -36,6 +36,8 @@ func (c *SeguridadSocialTerceroController) URLMapping() {
 func (c *SeguridadSocialTerceroController) Post() {
 	var v models.SeguridadSocialTercero
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddSeguridadSocialTercero(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
@@ -158,6 +160,11 @@ func (c *SeguridadSocialTerceroController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.SeguridadSocialTercero{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		infoAd, _ := models.GetSeguridadSocialTerceroById(id)
+		if infoAd != nil {
+			v.FechaCreacion = time_bogota.TiempoCorreccionFormato(infoAd.FechaCreacion)
+			v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+		}
 		if err := models.UpdateSeguridadSocialTerceroById(&v); err == nil {
 			c.Data["json"] = v
 		} else {

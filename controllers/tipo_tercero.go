@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-
+	"github.com/udistrital/utils_oas/time_bogota"
 	"github.com/udistrital/terceros_crud/models"
 
 	"github.com/astaxie/beego"
@@ -36,6 +36,8 @@ func (c *TipoTerceroController) URLMapping() {
 func (c *TipoTerceroController) Post() {
 	var v models.TipoTercero
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddTipoTercero(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
@@ -158,6 +160,11 @@ func (c *TipoTerceroController) Put() {
 	id, _ := strconv.Atoi(idStr)
 	v := models.TipoTercero{Id: id}
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		infoAd, _ := models.GetTipoTerceroById(id)
+		if infoAd != nil {
+			v.FechaCreacion = time_bogota.TiempoCorreccionFormato(infoAd.FechaCreacion)
+			v.FechaModificacion = time_bogota.TiempoBogotaFormato()
+		}
 		if err := models.UpdateTipoTerceroById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
