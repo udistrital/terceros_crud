@@ -5,8 +5,6 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"time"
-
 	"github.com/astaxie/beego/orm"
 )
 
@@ -15,10 +13,10 @@ type SeguridadSocialTercero struct {
 	TerceroId              *Tercero  `orm:"column(tercero_id);rel(fk)"`
 	TerceroEntidadId       *Tercero  `orm:"column(tercero_entidad_id);rel(fk)"`
 	Activo                 bool      `orm:"column(activo)"`
-	FechaInicioVinculacion time.Time `orm:"column(fecha_inicio_vinculacion);type(timestamp without time zone)"`
-	FechaFinVinculacion    time.Time `orm:"column(fecha_fin_vinculacion);type(timestamp without time zone);null"`
-	FechaCreacion          time.Time `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion      time.Time `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaInicioVinculacion string `orm:"column(fecha_inicio_vinculacion);type(timestamp without time zone)"`
+	FechaFinVinculacion    string `orm:"column(fecha_fin_vinculacion);type(timestamp without time zone);null"`
+	FechaCreacion          string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion      string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *SeguridadSocialTercero) TableName() string {
