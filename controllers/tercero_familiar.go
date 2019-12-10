@@ -5,7 +5,7 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-
+	"time"
 	"github.com/udistrital/terceros_crud/models"
 
 	"github.com/astaxie/beego"
@@ -37,6 +37,8 @@ func (c *TerceroFamiliarController) URLMapping() {
 func (c *TerceroFamiliarController) Post() {
 	var v models.TerceroFamiliar
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
+		v.FechaCreacion = time.Now()
+		v.FechaModificacion = time.Now()
 		if _, err := models.AddTerceroFamiliar(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
