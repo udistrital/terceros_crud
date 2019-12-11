@@ -37,7 +37,7 @@ func (c *TipoTerceroController) Post() {
 	var v models.TipoTercero
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
-		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
+		v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		if _, err := models.AddTipoTercero(&v); err == nil {
 			c.Ctx.Output.SetStatus(201)
 			c.Data["json"] = v
