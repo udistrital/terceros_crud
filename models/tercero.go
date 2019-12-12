@@ -6,6 +6,7 @@ import (
 	"reflect"
 	"strings"
 	"github.com/astaxie/beego/orm"
+	"time"
 )
 
 type Tercero struct {
@@ -16,7 +17,7 @@ type Tercero struct {
 	PrimerApellido      string             `orm:"column(primer_apellido);null"`
 	SegundoApellido     string             `orm:"column(segundo_apellido);null"`
 	LugarOrigen         int                `orm:"column(lugar_origen);null"`
-	FechaNacimiento     string          `orm:"column(fecha_nacimiento);type(timestamp without time zone);null"`
+	FechaNacimiento     *time.Time         `orm:"column(fecha_nacimiento);type(timestamp without time zone);null"`
 	Activo              bool               `orm:"column(activo)"`
 	TipoContribuyenteId *TipoContribuyente `orm:"column(tipo_contribuyente_id);rel(fk)"`
 	FechaCreacion       string          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
