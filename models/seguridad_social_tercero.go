@@ -6,6 +6,7 @@ import (
 	"reflect"
 	"strings"
 	"github.com/astaxie/beego/orm"
+	"time"
 )
 
 type SeguridadSocialTercero struct {
@@ -13,8 +14,8 @@ type SeguridadSocialTercero struct {
 	TerceroId              *Tercero  `orm:"column(tercero_id);rel(fk)"`
 	TerceroEntidadId       *Tercero  `orm:"column(tercero_entidad_id);rel(fk)"`
 	Activo                 bool      `orm:"column(activo)"`
-	FechaInicioVinculacion string `orm:"column(fecha_inicio_vinculacion);type(timestamp without time zone)"`
-	FechaFinVinculacion    string `orm:"column(fecha_fin_vinculacion);type(timestamp without time zone);null"`
+	FechaInicioVinculacion *time.Time `orm:"column(fecha_inicio_vinculacion);type(timestamp without time zone)"`
+	FechaFinVinculacion    *time.Time `orm:"column(fecha_fin_vinculacion);type(timestamp without time zone);null"`
 	FechaCreacion          string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion      string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
