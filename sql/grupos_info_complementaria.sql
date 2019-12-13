@@ -12,8 +12,8 @@ INSERT INTO terceros.grupo_info_complementaria (id, nombre, descripcion, codigo_
 INSERT INTO terceros.grupo_info_complementaria (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (4, 'Estados', 'Tipos de Estados.', 'Grupo_4', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.grupo_info_complementaria (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (5, 'Tipo Perfil', 'Tipos de Perfiles.', 'Grupo_5', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
--Tabla: info_complementaria
--Tabla que parametriza los tipos concretos de grupos sanguineo, grupos etnicos, discapacidades, estados civiles, generos y cualquier informacion complementaria relacionada a un tercero.
+--Tabla: info_complementaria
+--Tabla que parametriza los tipos concretos de grupos sanguineo, grupos etnicos, discapacidades, estados civiles, generos y cualquier informacion complementaria relacionada a un tercero.
 
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('FISICA', 'FISICA', TRUE, 1, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('SENSORIAL', 'SENSORIAL', TRUE, 1, LOCALTIMESTAMP, LOCALTIMESTAMP);
@@ -48,8 +48,8 @@ INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, gr
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('ASESOR 2', 'ASESOR 2', TRUE, 5, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('NO APLICA', 'NO APLICA', TRUE, 5, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
--Tabla: tipo_documento 
--Tabla que parametriza los diferentes tipos de documento que puede tener una persona juridica o natural.
+--Tabla: tipo_documento 
+--Tabla que parametriza los diferentes tipos de documento que puede tener una persona juridica o natural.
 
 INSERT INTO terceros.tipo_documento (nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES ('REGISTRO CIVIL DE NACIMIENTO', 'REGISTRO CIVIL DE NACIMIENTO', 'RC', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.tipo_documento (nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES ('TARJETA DE IDENTIDAD', 'TARJETA DE IDENTIDAD', 'TI', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
@@ -70,23 +70,23 @@ INSERT INTO terceros.tipo_documento (nombre, descripcion, codigo_abreviacion, ac
 
 
 
--Notas 
+--Notas 
 
--Revisar agora.parametro_tipo_conformacion VS agora.tipo_entidad
--Unidades tabla que se pidio revisar agora.unidad
-
-
+--Revisar agora.parametro_tipo_conformacion VS agora.tipo_entidad
+--Unidades tabla que se pidio revisar agora.unidad
 
 
 
--Tabla: tipo_contribuyente 
--Tabla que parametriza los Tipos de contribuyentes: PersonaNatural - Persona Juridica
+
+
+--Tabla: tipo_contribuyente 
+--Tabla que parametriza los Tipos de contribuyentes: PersonaNatural - Persona Juridica
 
 INSERT INTO terceros.tipo_contribuyente (id, nombre, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (1, 'PERSONA NATURAL', 'P_NATURAL', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.tipo_contribuyente (id, nombre, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (2, 'PERSONA JURIDICA', 'P_JURIDICA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
--Tabla: tipo_tercero
-Tabla que parametriza a los tipos de terceros, sean: Personas/Empresas/Eps/Caja Compensacion/Arl, Entidades de caracter Publico/Privado/Mixto entre otros.
+--Tabla: tipo_tercero
+--Tabla que parametriza a los tipos de terceros, sean: Personas/Empresas/Eps/Caja Compensacion/Arl, Entidades de caracter Publico/Privado/Mixto entre otros.
 
 INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (1, 'BANCO', 'Entidad Bancaria', 'BANCO', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (2, 'E_ASEGURADORA', 'Entidad Aseguradora', 'E_ASEGURADORA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
@@ -101,7 +101,7 @@ INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, 
 INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (11, 'FAMILIAR', 'Persona natural que tiene un parentesco con otra persona natural de la organización', 'FAMILIAR', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
 
--Tabla: grupo_info_complementaria // info_complementaria
+--Tabla: grupo_info_complementaria // info_complementaria
 
 INSERT INTO terceros.grupo_info_complementaria (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (6, 'Genero', 'Generos.', 'Grupo_6', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.grupo_info_complementaria (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (7, 'Grupo sanguineo', 'Clasificacion de los grupos sanguineos establecida por Karl Landsteiner.', 'Grupo_7', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
@@ -140,13 +140,13 @@ INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, gr
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('CODIGO_POSTAL', 'CODIGO_POSTAL', TRUE, 10, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
 
--28N
+--28N
 
 INSERT INTO terceros.grupo_info_complementaria (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (11, 'Información Adicional', 'Información Adicional.', 'Grupo_11', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('DESCRIPCIÓN', 'DESCRIPCIÓN', TRUE, 11, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
 
-- Sara >> Core >> Banco 
+--Sara >> Core >> Banco 
 
 WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contribuyente_id, fecha_creacion, fecha_modificacion) VALUES ('BANCO DE LA REPÚBLICA', TRUE, (SELECT id FROM terceros.tipo_contribuyente WHERE codigo_abreviacion = 'P_JURIDICA'), LOCALTIMESTAMP, LOCALTIMESTAMP) RETURNING id AS user_id ) , ins2 AS ( INSERT INTO terceros.tercero_tipo_tercero(tercero_id, tipo_tercero_id, activo, fecha_creacion, fecha_modificacion) SELECT user_id, 1, TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1 ) INSERT INTO terceros.info_complementaria_tercero (tercero_id, info_complementaria_id, dato, activo, fecha_creacion, fecha_modificacion) SELECT user_id, (SELECT id FROM terceros.info_complementaria WHERE codigo_abreviacion = 'DESCRIPCIÓN'), '{"dato":"Banco Local Colombia"}', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1;
 WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contribuyente_id, fecha_creacion, fecha_modificacion) VALUES ('BANCO DE BOGOTÁ', TRUE, (SELECT id FROM terceros.tipo_contribuyente WHERE codigo_abreviacion = 'P_JURIDICA'), LOCALTIMESTAMP, LOCALTIMESTAMP) RETURNING id AS user_id ) , ins2 AS ( INSERT INTO terceros.tercero_tipo_tercero(tercero_id, tipo_tercero_id, activo, fecha_creacion, fecha_modificacion) SELECT user_id, 1, TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1 ) INSERT INTO terceros.info_complementaria_tercero (tercero_id, info_complementaria_id, dato, activo, fecha_creacion, fecha_modificacion) SELECT user_id, (SELECT id FROM terceros.info_complementaria WHERE codigo_abreviacion = 'DESCRIPCIÓN'), '{"dato":"Banco Local Colombia"}', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1;
@@ -210,8 +210,8 @@ WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contri
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('ESTRATO_RESPONSABLE', 'ESTRATO_RESPONSABLE', TRUE, 9, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
 
--Ejemplo
-
+--Ejemplo
+/*
 WITH ins1 AS (
    INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contribuyente_id, fecha_creacion, fecha_modificacion)
    VALUES ('BANCO DE LA REPÚBLICA', TRUE, (SELECT id FROM terceros.tipo_contribuyente WHERE codigo_abreviacion = 'P_JURIDICA'), LOCALTIMESTAMP, LOCALTIMESTAMP)
@@ -223,10 +223,10 @@ WITH ins1 AS (
    )
 INSERT INTO terceros.info_complementaria_tercero (tercero_id, info_complementaria_id, dato, activo, fecha_creacion, fecha_modificacion)
 SELECT user_id, (SELECT id FROM terceros.info_complementaria WHERE codigo_abreviacion = 'DESCRIPCIÓN'), '{"dato":"Banco Local Colombia"}', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1;
+*/
+-- 2D
 
-- 2D
-
-- Sara >> Core >> imfo_entidad, parametro_entidad
+-- Sara >> Core >> imfo_entidad, parametro_entidad
 
 
 WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contribuyente_id, fecha_creacion, fecha_modificacion) VALUES ('EPS Sura', TRUE, (SELECT id FROM terceros.tipo_contribuyente WHERE codigo_abreviacion = 'P_JURIDICA'), LOCALTIMESTAMP, LOCALTIMESTAMP) RETURNING id AS user_id ) , ins2 AS ( INSERT INTO terceros.tercero_tipo_tercero(tercero_id, tipo_tercero_id, activo, fecha_creacion, fecha_modificacion) SELECT user_id, (SELECT id FROM terceros.tipo_tercero WHERE codigo_abreviacion = 'EPS'), TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1 ) , ins3 AS ( INSERT INTO terceros.info_complementaria_tercero(tercero_id, info_complementaria_id, dato, activo, fecha_creacion, fecha_modificacion) SELECT user_id, (SELECT id FROM terceros.info_complementaria WHERE codigo_abreviacion = 'DIRECCIÓN'), '{"dato":"Calle 140 # 30 - 25"}', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1 ) , ins4 AS ( INSERT INTO terceros.info_complementaria_tercero(tercero_id, info_complementaria_id, dato, activo, fecha_creacion, fecha_modificacion) SELECT user_id, (SELECT id FROM terceros.info_complementaria WHERE codigo_abreviacion = 'TELEFONO'), '{"dato":"4758693"}', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1 ) INSERT INTO terceros.datos_identificacion (tipo_documento_id, tercero_id, numero, activo, fecha_creacion, fecha_modificacion) SELECT (SELECT id FROM terceros.tipo_documento WHERE codigo_abreviacion = 'NIT'), user_id, '800088702', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1;
@@ -359,7 +359,7 @@ WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contri
 WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contribuyente_id, fecha_creacion, fecha_modificacion) VALUES ('EPS Unisalud', TRUE, (SELECT id FROM terceros.tipo_contribuyente WHERE codigo_abreviacion = 'P_JURIDICA'), LOCALTIMESTAMP, LOCALTIMESTAMP) RETURNING id AS user_id ) , ins2 AS ( INSERT INTO terceros.datos_identificacion(tipo_documento_id, tercero_id, numero, activo, fecha_creacion, fecha_modificacion) SELECT (SELECT id FROM terceros.tipo_documento WHERE codigo_abreviacion = 'NIT'), user_id, '860010783', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1 ) INSERT INTO terceros.tercero_tipo_tercero(tercero_id, tipo_tercero_id, activo, fecha_creacion, fecha_modificacion) SELECT user_id, (SELECT id FROM terceros.tipo_tercero WHERE codigo_abreviacion = 'EPS'), TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP FROM ins1;
 
 
--4D
+--4D
 
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('LUGAR_RESIDENCIA', 'LUGAR_RESIDENCIA', TRUE, 10, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
