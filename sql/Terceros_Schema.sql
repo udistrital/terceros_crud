@@ -350,39 +350,6 @@ COMMENT ON COLUMN terceros.seguridad_social_tercero.fecha_fin_vinculacion IS 'Fe
 COMMENT ON COLUMN terceros.seguridad_social_tercero.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';
 COMMENT ON COLUMN terceros.seguridad_social_tercero.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';
 
-
---Convertir en Inserts y grupos de datos.
-/**
-CREATE SEQUENCE terceros.informacion_socioeconomica_id_seq
-	INCREMENT BY 1
-	MINVALUE 1
-	MAXVALUE 9223372036854775807
-	START WITH 1
-	CACHE 1
-	NO CYCLE
-	OWNED BY NONE;
-
-CREATE TABLE terceros.informacion_socioeconomica(
-	id integer NOT NULL DEFAULT nextval('terceros.informacion_socioeconomica_id_seq'::regclass),
-    tercero_id integer NOT NULL,
-    estrato numeric (1,0),
-    puntaje_sisben numeric (3,2),
-    declarante_renta boolean, 
-    comunidad_lgbt boolean,
-    estado_civil boolean,
-    cabeza_familia boolean,
-    personas_a_cargo boolean,
-    numero_personas_a_cargo numeric(2,0),
-    hijos boolean,
-    numero_hijos numeric(2,0),
-	activo boolean NOT NULL,
-	fecha_creacion TIMESTAMP NOT NULL,
-	fecha_modificacion TIMESTAMP NOT NULL,
-	CONSTRAINT pk_informacion_socioeconomica PRIMARY KEY (id),
-    CONSTRAINT fk_tercero_informacion_socieconomica FOREIGN KEY (tercero_id) REFERENCES terceros.tercero(id)
-);**/
-
-
 --Creacion tabla tipo_parentesco
 CREATE SEQUENCE terceros.tipo_parentesco_id_seq
 	INCREMENT BY 1
@@ -450,4 +417,3 @@ COMMENT ON COLUMN terceros.tercero_familiar.fecha_modificacion IS 'Fecha y hora 
 
 ALTER TABLE terceros.tercero ADD usuario_wso2 character varying(20);
 COMMENT ON COLUMN terceros.tercero.usuario_wso2 IS 'Campo opcional para guardar el usuario de WSO2 de una persona_natural.';
-
