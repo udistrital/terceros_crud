@@ -363,7 +363,11 @@ WITH ins1 AS ( INSERT INTO terceros.tercero(nombre_completo, activo, tipo_contri
 
 INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('LUGAR_RESIDENCIA', 'LUGAR_RESIDENCIA', TRUE, 10, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
+--17D
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (13, 'DOCENTE HORA CÁTEDRA SALARIOS', 'DOCENTE HORA CÁTEDRA SALARIOS.', 'DHC_SALARIOS', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (14, 'DOCENTE HORA CÁTEDRA HONORARIOS', 'DOCENTE HORA CÁTEDRA HONORARIOS.', 'DHC_HONORARIOS', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (15, 'DOCENTE DE PLANTA', 'DOCENTE DE PLANTA.', 'D_PLANTA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (16, 'FUNCIONARIO DE PLANTA', 'FUNCIONARIO DE PLANTA.', 'FUNCIONARIO_PLANTA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (17, 'CONTRATISTA', 'CONTRATISTA.', 'CONTRATISTA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (18, 'PENSIONADO', 'PENSIONADO.', 'PENSIONADO', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
-
-
-.-.
