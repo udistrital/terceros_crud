@@ -371,3 +371,7 @@ INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, 
 INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (17, 'CONTRATISTA', 'CONTRATISTA.', 'CONTRATISTA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (18, 'PENSIONADO', 'PENSIONADO.', 'PENSIONADO', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
+--UNIVERSIDADES
+
+
+
