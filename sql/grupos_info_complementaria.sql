@@ -379,8 +379,14 @@ INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, 
 --Un Colegio Nuevo sera registrado como tercero inactivo y se le debe asociar un tipo_tercero que indique que la informacion del colegio queda para revision.
 INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (14, 'COLEGIO_VERIFICAR', 'Registro de colegio cuya información está pendiente de verificación.', 'COLEGIO_VERIFICAR', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
-
 --UNIVERSIDADES
+--Se crean 2 rows de tipo_tercero para unviersidades publicas y privadas 
 
+
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (15, 'UNIVERSIDAD_OFICIAL', 'UNIVERSIDAD_OFICIAL.', 'UNIVERSIDAD_OFICIAL', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (16, 'UNIVERSIDAD_PRIVADA', 'UNIVERSIDAD_PRIVADA.', 'UNIVERSIDAD_PRIVADA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+
+
+--Data Universidades
 
 
