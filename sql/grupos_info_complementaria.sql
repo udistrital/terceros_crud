@@ -371,6 +371,15 @@ INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, 
 INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (17, 'CONTRATISTA', 'CONTRATISTA.', 'CONTRATISTA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (18, 'PENSIONADO', 'PENSIONADO.', 'PENSIONADO', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
 
+--La vinculacion de un docente ya no se manejara con tipos terceros si no en API de vinculaciones solo se sabra si un Docente es Tercero    
+DELETE FROM terceros.tipo_tercero WHERE id BETWEEN 13 AND 18;
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (13, 'DOCENTE', 'Docente independiente del tipo de vinculación.', 'DOCENTE', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+
+
+--Un Colegio Nuevo sera registrado como tercero inactivo y se le debe asociar un tipo_tercero que indique que la informacion del colegio queda para revision.
+INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (14, 'COLEGIO_VERIFICAR', 'Registro de colegio cuya información está pendiente de verificación.', 'COLEGIO_VERIFICAR', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);
+
+
 --UNIVERSIDADES
 
 
