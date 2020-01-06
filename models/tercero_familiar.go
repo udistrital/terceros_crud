@@ -26,7 +26,7 @@ type TerceroFamiliarConInfoComplementaria struct {
 }
 
 type TrPostInformacionFamiliar struct {
-	Tercero_Familiar *Tercero
+	// Tercero_Familiar *Tercero
 	Familiares  		 *[]TerceroFamiliarConInfoComplementaria
 }
 
@@ -53,72 +53,59 @@ func AddInformacionFamiliar(m *TrPostInformacionFamiliar) (id int64, err error) 
 	err = o.Begin()
 
 	date := time_bogota.TiempoBogotaFormato()
+	for _, v := range *m.Familiares {
 
-	m.Tercero_Familiar.Activo = true
-	m.Tercero_Familiar.FechaCreacion = date
-	m.Tercero_Familiar.FechaModificacion = date
-	
-	if idTercero, errTr := o.Insert(m.Tercero_Familiar); errTr == nil {
-		fmt.Println("Tercero registrado", idTercero)
+		familiar := v.Familiar
 
-		for _, v := range *m.Familiares {
+		// familiar.TerceroId.Id = int(idTercero)
 
-			familiar := v.Familiar
+		familiar.TerceroFamiliarId.Activo = true
+		familiar.TerceroFamiliarId.FechaCreacion = date
+		familiar.TerceroFamiliarId.FechaModificacion = date
 
-			familiar.TerceroId.Id = int(idTercero)
-
-			familiar.TerceroFamiliarId.Activo = true
-			familiar.TerceroFamiliarId.FechaCreacion = date
-			familiar.TerceroFamiliarId.FechaModificacion = date
-
-			if idFamiliar, errTr := o.Insert(familiar.TerceroFamiliarId); errTr == nil {
-				fmt.Println("Familiar registrado", idFamiliar)
-				familiar.TerceroFamiliarId.Id = int(idFamiliar)
-			} else {
-				err = errTr
-				fmt.Println(err)
-				_ = o.Rollback()
-				return
-			}
-
-			familiar.Activo = true
-			familiar.FechaCreacion = date
-			familiar.FechaModificacion = date
-
-			if _, errTr = o.Insert(familiar); errTr == nil {
-				fmt.Println("Relación Tercero-Familiar registrado")
-			} else {
-				err = errTr
-				fmt.Println(err)
-				_ = o.Rollback()
-				return
-			}
-
-			for _, dato := range *v.InformacionContacto {
-
-				dato.TerceroId.Id = familiar.TerceroFamiliarId.Id
-				dato.Activo = true
-			  dato.FechaCreacion = date
-			  dato.FechaModificacion = date
-
-				if _, errTr = o.Insert(&dato); errTr == nil {
-					fmt.Println("dato de contacto registrado", dato.Dato)
-				} else {
-					err = errTr
-					fmt.Println(err)
-					_ = o.Rollback()
-					return
-				}
-			}
-
+		if idFamiliar, errTr := o.Insert(familiar.TerceroFamiliarId); errTr == nil {
+			fmt.Println("Familiar registrado", idFamiliar)
+			familiar.TerceroFamiliarId.Id = int(idFamiliar)
+		} else {
+			err = errTr
+			fmt.Println(err)
+			_ = o.Rollback()
+			return
 		}
 
-		_ = o.Commit()
-	} else {
-		err = errTr
-		fmt.Println(err)
-		_ = o.Rollback()
+		familiar.Activo = true
+		familiar.FechaCreacion = date
+		familiar.FechaModificacion = date
+
+		if _, errTr := o.Insert(familiar); errTr == nil {
+			fmt.Println("Relación Tercero-Familiar registrado")
+		} else {
+			err = errTr
+			fmt.Println(err)
+			_ = o.Rollback()
+			return
+		}
+
+		for _, dato := range *v.InformacionContacto {
+
+			dato.TerceroId.Id = familiar.TerceroFamiliarId.Id
+			dato.Activo = true
+			dato.FechaCreacion = date
+			dato.FechaModificacion = date
+
+			if _, errTr := o.Insert(&dato); errTr == nil {
+				fmt.Println("dato de contacto registrado", dato.Dato)
+			} else {
+				err = errTr
+				fmt.Println(err)
+				_ = o.Rollback()
+				return
+			}
+		}
+
 	}
+
+	_ = o.Commit()
 	return
 }
 
