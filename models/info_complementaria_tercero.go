@@ -3,9 +3,9 @@ package models
 import (
 	"errors"
 	"fmt"
+	"github.com/astaxie/beego/orm"
 	"reflect"
 	"strings"
-	"github.com/astaxie/beego/orm"
 )
 
 type InfoComplementariaTercero struct {
@@ -34,6 +34,7 @@ func AddInfoComplementariaTercero(m *InfoComplementariaTercero) (id int64, err e
 	id, err = o.Insert(m)
 	return
 }
+
 
 // GetInfoComplementariaTerceroById retrieves InfoComplementariaTercero by Id. Returns error if
 // Id doesn't exist
