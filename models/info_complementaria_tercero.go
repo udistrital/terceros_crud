@@ -16,6 +16,7 @@ type InfoComplementariaTercero struct {
 	Activo               bool                `orm:"column(activo)"`
 	FechaCreacion        string           `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion    string           `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	InfoCompleTerceroPadreId *InfoComplementariaTercero `orm:"column(info_complementaria_tercero_padre_id);rel(fk);null"`
 }
 
 func (t *InfoComplementariaTercero) TableName() string {
