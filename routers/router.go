@@ -87,6 +87,12 @@ func init() {
 				&controllers.InfoComplementariaController{},
 			),
 		),
+
+		beego.NSNamespace("/vinculacion",
+			beego.NSInclude(
+				&controllers.VinculacionController{},
+			),
+		),
 	)
 	beego.AddNamespace(ns)
 }
