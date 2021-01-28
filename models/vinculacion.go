@@ -3,56 +3,62 @@ package models
 import (
 	"errors"
 	"fmt"
-	"github.com/astaxie/beego/orm"
 	"reflect"
 	"strings"
+	"time"
+
+	"github.com/astaxie/beego/orm"
 )
 
-type InfoComplementariaTercero struct {
-	Id                   int                 `orm:"column(id);pk;auto"`
-	TerceroId            *Tercero            `orm:"column(tercero_id);rel(fk)"`
-	InfoComplementariaId *InfoComplementaria `orm:"column(info_complementaria_id);rel(fk)"`
-	Dato                 string              `orm:"column(dato);type(json);null"`
-	Activo               bool                `orm:"column(activo)"`
-	FechaCreacion        string           `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion    string           `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	InfoCompleTerceroPadreId *InfoComplementariaTercero `orm:"column(info_complementaria_tercero_padre_id);rel(fk);null"`
+type Vinculacion struct {
+	Id                     int       `orm:"column(id);pk"`
+	TerceroPrincipalId     *Tercero  `orm:"column(tercero_principal_id);rel(fk)"`
+	TerceroRelacionadoId   *Tercero  `orm:"column(tercero_relacionado_id);rel(fk);null"`
+	TipoVinculacionId      int       `orm:"column(tipo_vinculacion_id)"`
+	CargoId                int       `orm:"column(cargo_id);null"`
+	DependenciaId          int       `orm:"column(dependencia_id);null"`
+	Soporte                int       `orm:"column(soporte);null"`
+	PeriodoId              int       `orm:"column(periodo_id);null"`
+	FechaInicioVinculacion time.Time `orm:"column(fecha_inicio_vinculacion);type(timestamp without time zone);null"`
+	FechaFinVinculacion    time.Time `orm:"column(fecha_fin_vinculacion);type(timestamp without time zone);null"`
+	Activo                 bool      `orm:"column(activo)"`
+	FechaCreacion          string    `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
+	FechaModificacion      string    `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
 }
 
-func (t *InfoComplementariaTercero) TableName() string {
-	return "info_complementaria_tercero"
+func (t *Vinculacion) TableName() string {
+	return "vinculacion"
 }
 
 func init() {
-	orm.RegisterModel(new(InfoComplementariaTercero))
+	orm.RegisterModel(new(Vinculacion))
 }
 
-// AddInfoComplementariaTercero insert a new InfoComplementariaTercero into database and returns
+// AddVinculacion insert a new Vinculacion into database and returns
 // last inserted Id on success.
-func AddInfoComplementariaTercero(m *InfoComplementariaTercero) (id int64, err error) {
+func AddVinculacion(m *Vinculacion) (id int64, err error) {
 	o := orm.NewOrm()
 	id, err = o.Insert(m)
 	return
 }
 
-
-// GetInfoComplementariaTerceroById retrieves InfoComplementariaTercero by Id. Returns error if
+// GetVinculacionById retrieves Vinculacion by Id. Returns error if
 // Id doesn't exist
-func GetInfoComplementariaTerceroById(id int) (v *InfoComplementariaTercero, err error) {
+func GetVinculacionById(id int) (v *Vinculacion, err error) {
 	o := orm.NewOrm()
-	v = &InfoComplementariaTercero{Id: id}
+	v = &Vinculacion{Id: id}
 	if err = o.Read(v); err == nil {
 		return v, nil
 	}
 	return nil, err
 }
 
-// GetAllInfoComplementariaTercero retrieves all InfoComplementariaTercero matches certain condition. Returns empty list if
+// GetAllVinculacion retrieves all Vinculacion matches certain condition. Returns empty list if
 // no records exist
-func GetAllInfoComplementariaTercero(query map[string]string, fields []string, sortby []string, order []string,
+func GetAllVinculacion(query map[string]string, fields []string, sortby []string, order []string,
 	offset int64, limit int64) (ml []interface{}, err error) {
 	o := orm.NewOrm()
-	qs := o.QueryTable(new(InfoComplementariaTercero)).RelatedSel()
+	qs := o.QueryTable(new(Vinculacion)).RelatedSel()
 	// query k=v
 	for k, v := range query {
 		// rewrite dot-notation to Object__Attribute
@@ -102,7 +108,7 @@ func GetAllInfoComplementariaTercero(query map[string]string, fields []string, s
 		}
 	}
 
-	var l []InfoComplementariaTercero
+	var l []Vinculacion
 	qs = qs.OrderBy(sortFields...)
 	if _, err = qs.Limit(limit, offset).All(&l, fields...); err == nil {
 		if len(fields) == 0 {
@@ -125,11 +131,11 @@ func GetAllInfoComplementariaTercero(query map[string]string, fields []string, s
 	return nil, err
 }
 
-// UpdateInfoComplementariaTercero updates InfoComplementariaTercero by Id and returns error if
+// UpdateVinculacion updates Vinculacion by Id and returns error if
 // the record to be updated doesn't exist
-func UpdateInfoComplementariaTerceroById(m *InfoComplementariaTercero) (err error) {
+func UpdateVinculacionById(m *Vinculacion) (err error) {
 	o := orm.NewOrm()
-	v := InfoComplementariaTercero{Id: m.Id}
+	v := Vinculacion{Id: m.Id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
@@ -140,15 +146,15 @@ func UpdateInfoComplementariaTerceroById(m *InfoComplementariaTercero) (err erro
 	return
 }
 
-// DeleteInfoComplementariaTercero deletes InfoComplementariaTercero by Id and returns error if
+// DeleteVinculacion deletes Vinculacion by Id and returns error if
 // the record to be deleted doesn't exist
-func DeleteInfoComplementariaTercero(id int) (err error) {
+func DeleteVinculacion(id int) (err error) {
 	o := orm.NewOrm()
-	v := InfoComplementariaTercero{Id: id}
+	v := Vinculacion{Id: id}
 	// ascertain id exists in the database
 	if err = o.Read(&v); err == nil {
 		var num int64
-		if num, err = o.Delete(&InfoComplementariaTercero{Id: id}); err == nil {
+		if num, err = o.Delete(&Vinculacion{Id: id}); err == nil {
 			fmt.Println("Number of records deleted in database:", num)
 		}
 	}
