@@ -3,9 +3,9 @@ package models
 import (
 	"errors"
 	"fmt"
+	"github.com/astaxie/beego/orm"
 	"reflect"
 	"strings"
-	"github.com/astaxie/beego/orm"
 )
 
 type InfoComplementariaTercero struct {
@@ -16,6 +16,7 @@ type InfoComplementariaTercero struct {
 	Activo               bool                `orm:"column(activo)"`
 	FechaCreacion        string           `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion    string           `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	InfoCompleTerceroPadreId *InfoComplementariaTercero `orm:"column(info_complementaria_tercero_padre_id);rel(fk);null"`
 }
 
 func (t *InfoComplementariaTercero) TableName() string {
@@ -33,6 +34,7 @@ func AddInfoComplementariaTercero(m *InfoComplementariaTercero) (id int64, err e
 	id, err = o.Insert(m)
 	return
 }
+
 
 // GetInfoComplementariaTerceroById retrieves InfoComplementariaTercero by Id. Returns error if
 // Id doesn't exist
