@@ -467,6 +467,24 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
+  /info_complementaria_tercero/padre:
+    post:
+      tags:
+      - info_complementaria_tercero
+      description: create InfoComplementariaTercero Padre
+      operationId: InfoComplementariaTerceroController.PostPadre
+      parameters:
+      - in: body
+        name: body
+        description: body for InfoComplementariaTercero content
+        required: true
+        schema:
+          $ref: '#/definitions/models.InfoComplementariaTercero'
+      responses:
+        "201":
+          description: '{int} models.InfoComplementariaTercero'
+        "400":
+          description: the request contains incorrect syntax
   /seguridad_social_tercero/:
     get:
       tags:
@@ -1397,6 +1415,120 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
+  /vinculacion/:
+    get:
+      tags:
+      - vinculacion
+      description: get Vinculacion
+      operationId: VinculacionController.Get All
+      parameters:
+      - in: query
+        name: query
+        description: Filter. e.g. col1:v1,col2:v2 ...
+        type: string
+      - in: query
+        name: fields
+        description: Fields returned. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: sortby
+        description: Sorted-by fields. e.g. col1,col2 ...
+        type: string
+      - in: query
+        name: order
+        description: Order corresponding to each sortby field, if single value, apply to all sortby fields. e.g. desc,asc ...
+        type: string
+      - in: query
+        name: limit
+        description: Limit the size of result set. Must be an integer
+        type: string
+      - in: query
+        name: offset
+        description: Start position of result set. Must be an integer
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Vinculacion'
+        "404":
+          description: not found resource
+    post:
+      tags:
+      - vinculacion
+      description: create Vinculacion
+      operationId: VinculacionController.Post
+      parameters:
+      - in: body
+        name: body
+        description: body for Vinculacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Vinculacion'
+      responses:
+        "201":
+          description: '{int} models.Vinculacion'
+        "400":
+          description: the request contains incorrect syntax
+  /vinculacion/{id}:
+    get:
+      tags:
+      - vinculacion
+      description: get Vinculacion by id
+      operationId: VinculacionController.Get One
+      parameters:
+      - in: path
+        name: id
+        description: The key for staticblock
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Vinculacion'
+        "404":
+          description: not found resource
+    put:
+      tags:
+      - vinculacion
+      description: update the Vinculacion
+      operationId: VinculacionController.Put
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to update
+        required: true
+        type: string
+      - in: body
+        name: body
+        description: body for Vinculacion content
+        required: true
+        schema:
+          $ref: '#/definitions/models.Vinculacion'
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.Vinculacion'
+        "400":
+          description: the request contains incorrect syntax
+    delete:
+      tags:
+      - vinculacion
+      description: delete the Vinculacion
+      operationId: VinculacionController.Delete
+      parameters:
+      - in: path
+        name: id
+        description: The id you want to delete
+        required: true
+        type: string
+      responses:
+        "200":
+          description: '{string} delete success!'
+        "404":
+          description: not found resource
 definitions:
   models.DatosIdentificacion:
     title: DatosIdentificacion
@@ -1484,6 +1616,8 @@ definitions:
       Id:
         type: integer
         format: int64
+      InfoCompleTerceroPadreId:
+        $ref: '#/definitions/models.InfoComplementariaTercero'
       InfoComplementariaId:
         $ref: '#/definitions/models.InfoComplementaria'
       TerceroId:
@@ -1664,6 +1798,44 @@ definitions:
         format: int64
       Nombre:
         type: string
+  models.Vinculacion:
+    title: Vinculacion
+    type: object
+    properties:
+      Activo:
+        type: boolean
+      CargoId:
+        type: integer
+        format: int64
+      DependenciaId:
+        type: integer
+        format: int64
+      FechaCreacion:
+        type: string
+      FechaFinVinculacion:
+        type: string
+        format: datetime
+      FechaInicioVinculacion:
+        type: string
+        format: datetime
+      FechaModificacion:
+        type: string
+      Id:
+        type: integer
+        format: int64
+      PeriodoId:
+        type: integer
+        format: int64
+      Soporte:
+        type: integer
+        format: int64
+      TerceroPrincipalId:
+        $ref: '#/definitions/models.Tercero'
+      TerceroRelacionadoId:
+        $ref: '#/definitions/models.Tercero'
+      TipoVinculacionId:
+        type: integer
+        format: int64
 tags:
 - name: tipo_parentesco
   description: |
@@ -1701,3 +1873,6 @@ tags:
 - name: info_complementaria
   description: |
     InfoComplementariaController operations for InfoComplementaria
+- name: vinculacion
+  description: |
+    VinculacionController operations for Vinculacion
