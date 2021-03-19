@@ -1804,6 +1804,8 @@ definitions:
     properties:
       Activo:
         type: boolean
+      Alternancia:
+        type: boolean
       CargoId:
         type: integer
         format: int64
