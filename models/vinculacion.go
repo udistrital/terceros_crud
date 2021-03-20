@@ -11,7 +11,7 @@ import (
 )
 
 type Vinculacion struct {
-	Id                     int       `orm:"column(id);pk"`
+	Id                     int       `orm:"column(id);pk;auto"`
 	TerceroPrincipalId     *Tercero  `orm:"column(tercero_principal_id);rel(fk)"`
 	TerceroRelacionadoId   *Tercero  `orm:"column(tercero_relacionado_id);rel(fk);null"`
 	TipoVinculacionId      int       `orm:"column(tipo_vinculacion_id)"`
@@ -24,6 +24,7 @@ type Vinculacion struct {
 	Activo                 bool      `orm:"column(activo)"`
 	FechaCreacion          string    `orm:"column(fecha_creacion);type(timestamp without time zone);null"`
 	FechaModificacion      string    `orm:"column(fecha_modificacion);type(timestamp without time zone);null"`
+	Alternancia            bool      `orm:"column(alternancia);null"`
 }
 
 func (t *Vinculacion) TableName() string {
