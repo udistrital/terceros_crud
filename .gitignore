@@ -1,8 +1,11 @@
-lastupdate.tmp
+*.tmp
+*.log
 .vscode/
 terceros_crud
+*.exe
 main
 .scannerwork/
 swagger/**
 !swagger/swagger.json
 !swagger/swagger.yml
+*.env
