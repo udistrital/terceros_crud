@@ -6,6 +6,7 @@ terceros_crud
 main
 .scannerwork/
 swagger/**
+swagger.zip
 !swagger/swagger.json
 !swagger/swagger.yml
 *.env
