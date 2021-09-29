@@ -1,0 +1,1 @@
+DELETE FROM terceros.info_complementaria WHERE grupo_info_complementaria_id = 1 AND codigo_abreviacion = 'DOC_SOPORTE';
