@@ -1,0 +1,3 @@
+UPDATE terceros.info_complementaria SET nombre = 'DOCUMENTO_SOPORTE_DISCAPACIDAD', codigo_abreviacion = 'DOC_DISCAPACIDAD' WHERE grupo_info_complementaria_id = 1 AND codigo_abreviacion = 'DOC_SOPORTE'; 
+
+INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('DOCUMENTO_SOPORTE_POBLACION', 'DOC_POBLACION', TRUE, 3, LOCALTIMESTAMP, LOCALTIMESTAMP);
