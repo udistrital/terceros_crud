@@ -3,7 +3,7 @@
 CAUTION: Do not modify this file unless you know what you are doing.
          Unexpected results may occur if the code is changed deliberately.
 -->
-<dbmodel pgmodeler-ver="0.9.1-beta" last-position="0,162" last-zoom="0.5"
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="970,1177" last-zoom="0.95"
 	 default-schema="public" default-owner="postgres">
 <role name="test"
       superuser="true"
@@ -477,7 +477,7 @@ CAUTION: Do not modify this file unless you know what you are doing.
 		<comment><![CDATA[Identificador unico de la tabla info_complementaria]]></comment>
 	</column>
 	<column name="dato">
-		<type name="json" length="0"/>
+		<type name="jsonb" length="0"/>
 		<comment><![CDATA[Campo para guardar informacion que no se pueda parametrizar, el tipo de dato que se guarda en esta estructura se relacionara en la tabla info_complementaria.]]></comment>
 	</column>
 	<column name="activo" not-null="true">
