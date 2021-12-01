@@ -9,3 +9,5 @@ require (
 	github.com/smartystreets/goconvey v1.6.4
 	github.com/udistrital/utils_oas v0.0.0-20210421184521-1d702419e42a
 )
+
+replace github.com/astaxie/beego v1.12.3 => github.com/udistrital/beego v1.12.4-0.20211126032252-ee78ca48b207
