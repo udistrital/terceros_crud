@@ -1,12 +1,17 @@
+# Binarios, Compilados y Temporales
 *.tmp
 *.log
-.vscode/
-terceros_crud
+*.zip
 *.exe
+*~
+terceros_crud
 main
+
+# IDEs y otros
+.vscode/
 .scannerwork/
+
+# Swagger
 swagger/**
-swagger.zip
 !swagger/swagger.json
 !swagger/swagger.yml
-*.env
