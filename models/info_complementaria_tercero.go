@@ -13,7 +13,7 @@ type InfoComplementariaTercero struct {
 	Id                       int                        `orm:"column(id);pk;auto"`
 	TerceroId                *Tercero                   `orm:"column(tercero_id);rel(fk)"`
 	InfoComplementariaId     *InfoComplementaria        `orm:"column(info_complementaria_id);rel(fk)"`
-	Dato                     string                     `orm:"column(dato);type(json);null"`
+	Dato                     string                     `orm:"column(dato);type(jsonb);null"`
 	Activo                   bool                       `orm:"column(activo)"`
 	FechaCreacion            string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion        string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
