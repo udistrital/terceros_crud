@@ -75,7 +75,11 @@ Pruebas unitarias
 
 ## Modelo de Datos
 
-[Modelo de Datos Relacional terceros_crud](./sql/Terceros_Schema.png)
+<!-- TODO: Limpiar versiones anteriores (y el siguiente link), para eso es Git -->
+
+[Modelo de Datos Relacional terceros_crud](./sql/Terceros_Schema.png) -
+[SVG](database/terceros.svg) -
+[PGModeler](database/terceros.dbm)
 
 ## Estado CI
 
