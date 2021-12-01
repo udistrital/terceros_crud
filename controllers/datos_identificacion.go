@@ -5,11 +5,12 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-	"github.com/udistrital/terceros_crud/models"
-	"github.com/udistrital/utils_oas/time_bogota"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
-	
+
+	"github.com/udistrital/terceros_crud/models"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 // DatosIdentificacionController operations for DatosIdentificacion
@@ -35,7 +36,7 @@ func (c *DatosIdentificacionController) URLMapping() {
 // @router / [post]
 func (c *DatosIdentificacionController) Post() {
 	var v models.DatosIdentificacion
-	
+
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		v.FechaCreacion = time_bogota.TiempoBogotaFormato()
 		v.FechaModificacion = time_bogota.TiempoBogotaFormato()

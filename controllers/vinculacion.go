@@ -6,11 +6,11 @@ import (
 	"strconv"
 	"strings"
 
-	"github.com/udistrital/terceros_crud/models"
-	"github.com/udistrital/utils_oas/time_bogota"
-
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+
+	"github.com/udistrital/terceros_crud/models"
+	"github.com/udistrital/utils_oas/time_bogota"
 )
 
 // VinculacionController operations for Vinculacion

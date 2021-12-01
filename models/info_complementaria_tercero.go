@@ -3,19 +3,20 @@ package models
 import (
 	"errors"
 	"fmt"
-	"github.com/astaxie/beego/orm"
 	"reflect"
 	"strings"
+
+	"github.com/astaxie/beego/orm"
 )
 
 type InfoComplementariaTercero struct {
-	Id                   int                 `orm:"column(id);pk;auto"`
-	TerceroId            *Tercero            `orm:"column(tercero_id);rel(fk)"`
-	InfoComplementariaId *InfoComplementaria `orm:"column(info_complementaria_id);rel(fk)"`
-	Dato                 string              `orm:"column(dato);type(json);null"`
-	Activo               bool                `orm:"column(activo)"`
-	FechaCreacion        string           `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion    string           `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                       int                        `orm:"column(id);pk;auto"`
+	TerceroId                *Tercero                   `orm:"column(tercero_id);rel(fk)"`
+	InfoComplementariaId     *InfoComplementaria        `orm:"column(info_complementaria_id);rel(fk)"`
+	Dato                     string                     `orm:"column(dato);type(json);null"`
+	Activo                   bool                       `orm:"column(activo)"`
+	FechaCreacion            string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion        string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	InfoCompleTerceroPadreId *InfoComplementariaTercero `orm:"column(info_complementaria_tercero_padre_id);rel(fk);null"`
 }
 
@@ -34,7 +35,6 @@ func AddInfoComplementariaTercero(m *InfoComplementariaTercero) (id int64, err e
 	id, err = o.Insert(m)
 	return
 }
-
 
 // GetInfoComplementariaTerceroById retrieves InfoComplementariaTercero by Id. Returns error if
 // Id doesn't exist

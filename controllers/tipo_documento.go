@@ -5,9 +5,11 @@ import (
 	"errors"
 	"strconv"
 	"strings"
-	"github.com/udistrital/terceros_crud/models"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/logs"
+
+	"github.com/udistrital/terceros_crud/models"
 	"github.com/udistrital/utils_oas/time_bogota"
 )
 
@@ -158,14 +160,14 @@ func (c *TipoDocumentoController) Put() {
 	idStr := c.Ctx.Input.Param(":id")
 	id, _ := strconv.Atoi(idStr)
 	v := models.TipoDocumento{Id: id}
-	
+
 	if err := json.Unmarshal(c.Ctx.Input.RequestBody, &v); err == nil {
 		infoAd, _ := models.GetTipoDocumentoById(id)
 		if infoAd != nil {
 			v.FechaCreacion = time_bogota.TiempoCorreccionFormato(infoAd.FechaCreacion)
 			v.FechaModificacion = time_bogota.TiempoBogotaFormato()
 		}
-		
+
 		if err := models.UpdateTipoDocumentoById(&v); err == nil {
 			c.Data["json"] = v
 		} else {
