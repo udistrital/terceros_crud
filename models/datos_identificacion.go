@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"github.com/astaxie/beego/orm"
 	"time"
+
+	"github.com/astaxie/beego/orm"
 )
 
 type DatosIdentificacion struct {
@@ -19,7 +20,7 @@ type DatosIdentificacion struct {
 	FechaExpedicion    *time.Time     `orm:"column(fecha_expedicion);type(timestamp without time zone);null"`
 	Activo             bool           `orm:"column(activo)"`
 	DocumentoSoporte   int            `orm:"column(documento_soporte);null"`
-	FechaCreacion      string	      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaCreacion      string         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion  string         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
