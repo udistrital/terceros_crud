@@ -1,15 +1,18 @@
 # terceros_crud
+
 API para la gestión de terceros y tipos de terceros vinculados a la Universidad Distrital
 
 ## Especificaciones Técnicas
 
 ### Tecnologías Implementadas y Versiones
-* [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
-* [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
-* [Docker](https://docs.docker.com/engine/install/ubuntu/)
-* [Docker Compose](https://docs.docker.com/compose/)
+
+- [Golang](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/golang.md)
+- [BeeGo](https://github.com/udistrital/introduccion_oas/blob/master/instalacion_de_herramientas/beego.md)
+- [Docker](https://docs.docker.com/engine/install/ubuntu/)
+- [Docker Compose](https://docs.docker.com/compose/)
 
 ### Variables de Entorno
+
 ```shell
 # parametros de api
 TERCEROS_CRUD_HTTP_PORT=[Puerto de exposición del API]
@@ -22,9 +25,11 @@ TERCEROS_CRUD_PGPORT=[Puerto de la BD]
 TERCEROS_CRUD_PGDB=[Nombre de Base de Datos]
 TERCEROS_CRUD_PGSCHEMA=[Nombre del Esquema de Base de Datos]
 ```
-**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con TERCEROS_CRUD_...
+
+**NOTA:** Las variables se pueden ver en el fichero conf/app.conf y están identificadas con `TERCEROS_CRUD_...`
 
 ### Ejecución del Proyecto
+
 ```shell
 #1. Obtener el repositorio con Go
 go get github.com/udistrital/terceros_crud
@@ -40,11 +45,13 @@ TERCEROS_CRUD_PORT=8080 TERCEROS_CRUD_SOME_VARIABLE bee run
 ```
 
 ### Ejecución Dockerfile
+
 ```shell
 # Implementado para despliegue del Sistema de integración continua CI.
 ```
 
 ### Ejecución docker-compose
+
 ```shell
 # 1. Obtener repositorio
 git clone https://github.com/udistrital/terceros_crud.git
@@ -61,13 +68,18 @@ docker-compose up --build
 ### Ejecución Pruebas
 
 Pruebas unitarias
+
 ```shell
 # En Proceso
 ```
 
 ## Modelo de Datos
-[Modelo de Datos Relacional terceros_crud](./sql/Terceros_Schema.png)
 
+<!-- TODO: Limpiar versiones anteriores (y el siguiente link), para eso es Git -->
+
+[Modelo de Datos Relacional terceros_crud](./sql/Terceros_Schema.png) -
+[SVG](database/terceros.svg) -
+[PGModeler](database/terceros.dbm)
 
 ## Estado CI
 

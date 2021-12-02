@@ -1,0 +1,902 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+CAUTION: Do not modify this file unless you know what you are doing.
+         Unexpected results may occur if the code is changed deliberately.
+-->
+<dbmodel pgmodeler-ver="0.9.1-beta" last-position="970,1177" last-zoom="0.95"
+	 default-schema="public" default-owner="postgres">
+<role name="test"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********"
+      sql-disabled="true">
+</role>
+
+<role name="desarrollooas"
+      superuser="true"
+      createdb="true"
+      replication="true"
+      createrole="true"
+      inherit="true"
+      login="true"
+      encrypted="true"
+      password="********">
+</role>
+
+<database name="test" encoding="UTF8" lc-collate="en_US.utf8" lc-ctype="en_US.utf8">
+	<role name="test"/>
+	<tablespace name="pg_default"/>
+</database>
+
+<schema name="public" rect-visible="true" fill-color="#e1e1e1" sql-disabled="true">
+</schema>
+
+<schema name="terceros" rect-visible="true" fill-color="#8a125c">
+	<role name="desarrollooas"/>
+</schema>
+
+<sequence name="tipo_documento_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="tipo_documento">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que parametriza los diferentes tipos de documento que puede tener una persona juridica o natural.]]></comment>
+	<position x="1720" y="800"/>
+	<column name="id" not-null="true" sequence="terceros.tipo_documento_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tipo_documento.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del parámetro.]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion del tipo_documento.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="numero_orden">
+		<type name="numeric" length="5" precision="2"/>
+		<comment><![CDATA[En dado caso que se necesite establecer un orden a los registros que no se encuentre definido por aplicación ni por BD. Allí se almacena permitiendo realizar subitems mediante la precisión.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_tipo_documento" type="pk-constr" table="terceros.tipo_documento">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tipo_contribuyente_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="tipo_contribuyente">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que parametriza los Tipos de contribuyentes: PersonaNatural - Persona Juridica]]></comment>
+	<position x="1200" y="1540"/>
+	<column name="id" not-null="true" sequence="terceros.tipo_contribuyente_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tipo_contribuyente.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del parámetro.]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion de tipo_contribuyente.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_tipo_contribuyente" type="pk-constr" table="terceros.tipo_contribuyente">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="grupo_info_complementaria_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="grupo_info_complementaria">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que parametriza la información complementaria de un tercero que pueda ser relacionada a un mismo grupo o tipo como pueden ser: discapacidades, estados civiles, grupos sanguíneo, grupos étnicos, géneros entre otros. También se requiere un grupo para valores cuyos datos internos no van a ser parametrizados.]]></comment>
+	<position x="1180" y="1900"/>
+	<column name="id" not-null="true" sequence="terceros.grupo_info_complementaria_id_seq">
+		<type name="integer" length="0"/>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del parámetro.]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion del grupo o tipo.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_grupo_info_complementaria" type="pk-constr" table="terceros.grupo_info_complementaria">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="info_complementaria_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="info_complementaria">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que parametriza los tipos concretos de grupos sanguineo, grupos etnicos, discapacidades, estados civiles, generos y cualquier informacion complementaria relacionada a un tercero.]]></comment>
+	<position x="1620" y="1860"/>
+	<column name="id" not-null="true" sequence="terceros.info_complementaria_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla info_complementaria.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del parámetro.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="tipo_de_dato">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Valor que indica el tipo de dato almacenado en la tabla info_complementaria_tercero en la columna dato.]]></comment>
+	</column>
+	<column name="grupo_info_complementaria_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tipo_informacion_basica.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_info_complementaria" type="pk-constr" table="terceros.info_complementaria">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tipo_tercero_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="tipo_tercero">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que parametriza a los tipos de terceros, sean: Personas/Empresas/Eps/Caja Compensacion/Arl, Entidades de caracter Publico/Privado/Mixto entre otros.]]></comment>
+	<position x="1720" y="600"/>
+	<column name="id" not-null="true" sequence="terceros.tipo_tercero_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tipo_tercero.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del parámetro.]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion del tipo tercero.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_tipo_tercero" type="pk-constr" table="terceros.tipo_tercero">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tercero_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="tercero">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que parametriza los Tipos de contribuyentes: PersonaNatural - Persona Juridica]]></comment>
+	<position x="1700" y="1420"/>
+	<column name="id" not-null="true" sequence="terceros.tercero_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero.]]></comment>
+	</column>
+	<column name="nombre_completo" not-null="true">
+		<type name="character varying" length="255"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre de la persona natural o juridica]]></comment>
+	</column>
+	<column name="primer_nombre">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Primer nombre persona natural.]]></comment>
+	</column>
+	<column name="segundo_nombre">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Segundo nombre persona natural.]]></comment>
+	</column>
+	<column name="primer_apellido">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Primer apellido persona natural.]]></comment>
+	</column>
+	<column name="segundo_apellido">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Segundo apellido persona natural.]]></comment>
+	</column>
+	<column name="lugar_origen">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Id del pais de origen de la persona / empresa / entidad.]]></comment>
+	</column>
+	<column name="fecha_nacimiento">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Campo que indica la fecha de nacimiento de la persona natural / indica la fecha de creacion de la empresa.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="tipo_contribuyente_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador de la tabla tipo_contribuyente, diferencia entre persona_natural, persona_juridica.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<column name="usuario_wso2">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Campo opcional para guardar el usuario de WSO2 de una persona_natural.]]></comment>
+	</column>
+	<constraint name="pk_tercero" type="pk-constr" table="terceros.tercero">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tercero_tipo_tercero_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="tercero_tipo_tercero">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que relaciona un tercero con uno o mas tipos de tercero Ej: Un colegio es de tipo colegio / organizacion  y a su vez es de carácter publico-privado-mixto.]]></comment>
+	<position x="2400" y="660"/>
+	<column name="id" not-null="true" sequence="terceros.tercero_tipo_tercero_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero_tipo_tercero.]]></comment>
+	</column>
+	<column name="tercero_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero.]]></comment>
+	</column>
+	<column name="tipo_tercero_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tipo_tercero.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_tercero_tipo_tercero" type="pk-constr" table="terceros.tercero_tipo_tercero">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="datos_identificacion_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="datos_identificacion">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que almacena el numero de identificación de un tercero y lo relaciona con su tipo pudiendo ser este CC, CE, NIT entre otros.]]></comment>
+	<position x="2400" y="880"/>
+	<column name="id" not-null="true" sequence="terceros.datos_identificacion_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla datos_identificacion.]]></comment>
+	</column>
+	<column name="tipo_documento_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tipo_documento]]></comment>
+	</column>
+	<column name="tercero_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero.]]></comment>
+	</column>
+	<column name="numero" not-null="true">
+		<type name="character varying" length="50"/>
+		<comment><![CDATA[Numero de Identificacion del Tercero.]]></comment>
+	</column>
+	<column name="digito_verificacion">
+		<type name="numeric" length="2" precision="0"/>
+		<comment><![CDATA[Dígito de verificación de la DIAN. Toda persona natural o jurídica que tenga un RUT debe tener un DV (NOT NULL para personas_juridicas).]]></comment>
+	</column>
+	<column name="ciudad_expedicion">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Valor que almacena el ID de la ciudad en que fue expedido el documento.]]></comment>
+	</column>
+	<column name="fecha_expedicion">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que fue expedido el documento de identificación.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="documento_soporte">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador asociado al soporte del documento, correspondiente para el tercero.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_datos_identificacion" type="pk-constr" table="terceros.datos_identificacion">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="info_complementaria_tercero_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="info_complementaria_tercero">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que relaciona a un Tercero con su información complementaria, el valor concreto con el que se relaciona puede ser encontrado en la columna dato o en la tabla info_complementaria dependiendo de si es parametrisable o no.]]></comment>
+	<position x="2240" y="1840"/>
+	<column name="id" not-null="true" sequence="terceros.info_complementaria_tercero_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla info_complementaria_tercero.]]></comment>
+	</column>
+	<column name="tercero_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero.]]></comment>
+	</column>
+	<column name="info_complementaria_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla info_complementaria]]></comment>
+	</column>
+	<column name="dato">
+		<type name="jsonb" length="0"/>
+		<comment><![CDATA[Campo para guardar informacion que no se pueda parametrizar, el tipo de dato que se guarda en esta estructura se relacionara en la tabla info_complementaria.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<column name="info_complementaria_tercero_padre_id">
+		<type name="integer" length="0"/>
+	</column>
+	<constraint name="pk_info_complementaria_tercero" type="pk-constr" table="terceros.info_complementaria_tercero">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="seguridad_social_tercero_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="seguridad_social_tercero">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que relaciona a un Tercero con su:  Eps / Caja Compensacion / Arl / fondo de Pension entre otros.]]></comment>
+	<position x="2400" y="1180"/>
+	<column name="id" not-null="true" sequence="terceros.seguridad_social_tercero_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla info_complementaria_tercero.]]></comment>
+	</column>
+	<column name="tercero_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero.]]></comment>
+	</column>
+	<column name="tercero_entidad_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero que corresponde a la entidad.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="fecha_inicio_vinculacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que el tercero se vincula a la entidad.]]></comment>
+	</column>
+	<column name="fecha_fin_vinculacion">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha en la que el tercero se retira/desvincula de la entidad, cambio de activo a FALSE.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_seguridad_social_tercero" type="pk-constr" table="terceros.seguridad_social_tercero">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tipo_parentesco_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="tipo_parentesco">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que parametriza a los tipos de parentescos que puede tener un tercero en relacion a otro, sean estos: Madre, Padre, Conyuge, Hijos, entre otros.]]></comment>
+	<position x="1720" y="400"/>
+	<column name="id" not-null="true" sequence="terceros.tipo_parentesco_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tipo_parentesco.]]></comment>
+	</column>
+	<column name="nombre" not-null="true">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo obligatorio de la tabla que indica el nombre del parámetro.]]></comment>
+	</column>
+	<column name="descripcion">
+		<type name="character varying" length="100"/>
+		<comment><![CDATA[Campo en el que se puede registrar una descripcion de la informacion del tipo de parentesco.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_tipo_parentesco" type="pk-constr" table="terceros.tipo_parentesco">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="tercero_familiar_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+</sequence>
+
+<table name="tercero_familiar">
+	<schema name="terceros"/>
+	<role name="desarrollooas"/>
+	<comment><![CDATA[Tabla que parametriza a los tipos de parentescos que puede tener un tercero en relacion a otro, sean estos: Madre, Padre, Conyuge, Hijos, entre otros.]]></comment>
+	<position x="2400" y="400"/>
+	<column name="id" not-null="true" sequence="terceros.tercero_familiar_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero_familiar.]]></comment>
+	</column>
+	<column name="tercero_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero.]]></comment>
+	</column>
+	<column name="tercero_familiar_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla tercero correspondiente al familiar.]]></comment>
+	</column>
+	<column name="tipo_parentesco_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la relacion de parentesco que existe entre tercero_id y tercero_familiar_id.]]></comment>
+	</column>
+	<column name="codigo_abreviacion">
+		<type name="character varying" length="20"/>
+		<comment><![CDATA[Código de abreviación, sigla, acrónimo u otra representación corta del registro si se requiere.]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Valor booleano para indicar si el registro esta activo o inactivo.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<constraint name="pk_tercero_familiar" type="pk-constr" table="terceros.tercero_familiar">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<sequence name="vinculacion_id_seq"
+	 start="1" increment="1"
+	 min-value="1" max-value="2147483647"
+	 cache="1" cycle="false">
+	<schema name="terceros"/>
+	<role name="test"/>
+</sequence>
+
+<table name="vinculacion">
+	<schema name="terceros"/>
+	<role name="test"/>
+	<comment><![CDATA[Tabla que muestra el histórico de vinculaciones que tiene un tercero, ya sea con otro tercero o con un cargo dentro de la universidad.]]></comment>
+	<position x="2400" y="1440"/>
+	<column name="id" not-null="true" sequence="terceros.vinculacion_id_seq">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Identificador unico de la tabla vinculacion]]></comment>
+	</column>
+	<column name="tercero_principal_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo obligatorio que referencia a la tabla tercero. Indica qué tercero tiene una vinculación.]]></comment>
+	</column>
+	<column name="tercero_relacionado_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo no obligatorio que referencia a la tabla tercero. Es el tercero relacionado al tercero principal.]]></comment>
+	</column>
+	<column name="tipo_vinculacion_id" not-null="true">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo obligatorio que referencia a un registro de la tabla parametro del esquema parametros. Indica el tipo de vinculación que posee el tercero principal.]]></comment>
+	</column>
+	<column name="cargo_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo no obligatorio que referencia a un registro de la tabla parametro del esquema parametros. Indica, de aplicarse, qué cargo específico desempeña el tercero principal.]]></comment>
+	</column>
+	<column name="dependencia_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo no obligatorio que referencia a esquema oikos. Indica la dependencia en la que el tercero principal desempeña la vinculación.]]></comment>
+	</column>
+	<column name="soporte">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo no obligatorio que referencia a esquema documentos. Relaciona un documento que sirva de soporte para la vinculación indicada en el registro.]]></comment>
+	</column>
+	<column name="periodo_id">
+		<type name="integer" length="0"/>
+		<comment><![CDATA[Campo no obligatorio que referencia a esquema parametros_estandar (tabla unidad). Indica, de ser válido para la vinculación, el periodo al que corresponde.]]></comment>
+	</column>
+	<column name="fecha_inicio_vinculacion">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Campo no obligatorio que indica la fecha exacta del inicio de la vinculación del tercero. ]]></comment>
+	</column>
+	<column name="fecha_fin_vinculacion">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Campo no obligatorio que indica la fecha exacta en la que termina la vinculación del tercero. ]]></comment>
+	</column>
+	<column name="activo" not-null="true">
+		<type name="boolean" length="0"/>
+		<comment><![CDATA[Campo obligatorio que indica el estado de la vinculación.]]></comment>
+	</column>
+	<column name="fecha_creacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la creación del registro en la BD.]]></comment>
+	</column>
+	<column name="fecha_modificacion" not-null="true">
+		<type name="timestamp" length="0"/>
+		<comment><![CDATA[Fecha y hora de la ultima modificación del registro en la BD.]]></comment>
+	</column>
+	<column name="alternancia">
+		<type name="boolean" length="0"/>
+	</column>
+	<constraint name="pk_vinculacion" type="pk-constr" table="terceros.vinculacion">
+		<columns names="id" ref-type="src-columns"/>
+	</constraint>
+</table>
+
+<constraint name="fk_grupo_info_complementaria_info_complementaria" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.grupo_info_complementaria" table="terceros.info_complementaria">
+	<columns names="grupo_info_complementaria_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tipo_contribuyente_tercero" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tipo_contribuyente" table="terceros.tercero">
+	<columns names="tipo_contribuyente_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tercero_tercero_tipo_tercero" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tercero" table="terceros.tercero_tipo_tercero">
+	<columns names="tercero_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tipo_tercero_tercero_tipo_tercero" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tipo_tercero" table="terceros.tercero_tipo_tercero">
+	<columns names="tipo_tercero_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tipo_documento_datos_identificacion" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tipo_documento" table="terceros.datos_identificacion">
+	<columns names="tipo_documento_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tercero_datos_identificacion" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tercero" table="terceros.datos_identificacion">
+	<columns names="tercero_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tercero_info_complementaria_tercero" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tercero" table="terceros.info_complementaria_tercero">
+	<columns names="tercero_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_info_complementaria_info_complementaria_tercero" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.info_complementaria" table="terceros.info_complementaria_tercero">
+	<columns names="info_complementaria_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_info_complementaria_tercero_padre_info_complementaria_tercer" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="terceros.info_complementaria_tercero" table="terceros.info_complementaria_tercero">
+	<columns names="info_complementaria_tercero_padre_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tercero_seguridad_social_tercero" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tercero" table="terceros.seguridad_social_tercero">
+	<columns names="tercero_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tercero_entidad_seguridad_social_tercero" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tercero" table="terceros.seguridad_social_tercero">
+	<columns names="tercero_entidad_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tercero_tercero_familiar" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tercero" table="terceros.tercero_familiar">
+	<columns names="tercero_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tercero_familiar_tercero_familiar" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tercero" table="terceros.tercero_familiar">
+	<columns names="tercero_familiar_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_tipo_parentesco_tercero_familiar" type="fk-constr" comparison-type="MATCH SIMPLE"
+	 upd-action="NO ACTION" del-action="NO ACTION" ref-table="terceros.tipo_parentesco" table="terceros.tercero_familiar">
+	<columns names="tipo_parentesco_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_vinculacion_tercero_principal" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="terceros.tercero" table="terceros.vinculacion">
+	<columns names="tercero_principal_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<constraint name="fk_vinculacion_tercero_relacionado" type="fk-constr" comparison-type="MATCH FULL"
+	 upd-action="CASCADE" del-action="RESTRICT" ref-table="terceros.tercero" table="terceros.vinculacion">
+	<columns names="tercero_relacionado_id" ref-type="src-columns"/>
+	<columns names="id" ref-type="dst-columns"/>
+</constraint>
+
+<relationship name="rel_info_complementaria_grupo_info_complementaria" type="relfk"
+	 custom-color="#3bba63"
+	 src-table="terceros.info_complementaria"
+	 dst-table="terceros.grupo_info_complementaria"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tercero_tipo_contribuyente" type="relfk"
+	 custom-color="#bc8ddf"
+	 src-table="terceros.tercero"
+	 dst-table="terceros.tipo_contribuyente"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tercero_tipo_tercero_tercero" type="relfk"
+	 custom-color="#14ffab"
+	 src-table="terceros.tercero_tipo_tercero"
+	 dst-table="terceros.tercero"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tercero_tipo_tercero_tipo_tercero" type="relfk"
+	 custom-color="#500879"
+	 src-table="terceros.tercero_tipo_tercero"
+	 dst-table="terceros.tipo_tercero"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_datos_identificacion_tipo_documento" type="relfk"
+	 custom-color="#54f453"
+	 src-table="terceros.datos_identificacion"
+	 dst-table="terceros.tipo_documento"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_datos_identificacion_tercero" type="relfk"
+	 custom-color="#2ea2bf"
+	 src-table="terceros.datos_identificacion"
+	 dst-table="terceros.tercero"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_info_complementaria_tercero_tercero" type="relfk"
+	 custom-color="#59132c"
+	 src-table="terceros.info_complementaria_tercero"
+	 dst-table="terceros.tercero"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_info_complementaria_tercero_info_complementaria" type="relfk"
+	 custom-color="#3f3a07"
+	 src-table="terceros.info_complementaria_tercero"
+	 dst-table="terceros.info_complementaria"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_info_complementaria_tercero_info_complementaria_tercero" type="relfk"
+	 custom-color="#54e3a9"
+	 src-table="terceros.info_complementaria_tercero"
+	 dst-table="terceros.info_complementaria_tercero"
+	 src-required="false" dst-required="false">
+	<line>
+		<position x="2751.4" y="1938.5"/>
+	<position x="2751.4" y="1829"/>
+	<position x="2573.6" y="1829"/>
+	</line>
+</relationship>
+
+<relationship name="rel_seguridad_social_tercero_tercero" type="relfk"
+	 custom-color="#c3bc32"
+	 src-table="terceros.seguridad_social_tercero"
+	 dst-table="terceros.tercero"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tercero_familiar_tercero" type="relfk"
+	 custom-color="#2daec9"
+	 src-table="terceros.tercero_familiar"
+	 dst-table="terceros.tercero"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_tercero_familiar_tipo_parentesco" type="relfk"
+	 custom-color="#9ac6c7"
+	 src-table="terceros.tercero_familiar"
+	 dst-table="terceros.tipo_parentesco"
+	 src-required="false" dst-required="false"/>
+
+<relationship name="rel_vinculacion_tercero" type="relfk"
+	 custom-color="#96e67c"
+	 src-table="terceros.vinculacion"
+	 dst-table="terceros.tercero"
+	 src-required="false" dst-required="false"/>
+
+</dbmodel>

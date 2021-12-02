@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+
 	"github.com/astaxie/beego/orm"
+
 	"github.com/udistrital/utils_oas/time_bogota"
 )
 
@@ -16,8 +18,8 @@ type TerceroFamiliar struct {
 	TipoParentescoId  *TipoParentesco `orm:"column(tipo_parentesco_id);rel(fk)"`
 	CodigoAbreviacion string          `orm:"column(codigo_abreviacion);null"`
 	Activo            bool            `orm:"column(activo)"`
-	FechaCreacion     string       `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion string       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     string          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 type TerceroFamiliarConInfoComplementaria struct {
@@ -27,7 +29,7 @@ type TerceroFamiliarConInfoComplementaria struct {
 
 type TrPostInformacionFamiliar struct {
 	// Tercero_Familiar *Tercero
-	Familiares  		 *[]TerceroFamiliarConInfoComplementaria
+	Familiares *[]TerceroFamiliarConInfoComplementaria
 }
 
 func (t *TerceroFamiliar) TableName() string {
