@@ -1,0 +1,3 @@
+INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('EXPERIENCIA_LABORAL', 'EXP_LABORAL', TRUE, 19, LOCALTIMESTAMP, LOCALTIMESTAMP);
+
+INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('FORMACION_ACADEMICA', 'FORM_ACADEMICA', TRUE, 18, LOCALTIMESTAMP, LOCALTIMESTAMP);

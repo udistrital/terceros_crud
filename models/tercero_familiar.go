@@ -5,7 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+
 	"github.com/astaxie/beego/orm"
+
 	"github.com/udistrital/utils_oas/time_bogota"
 )
 
@@ -16,8 +18,8 @@ type TerceroFamiliar struct {
 	TipoParentescoId  *TipoParentesco `orm:"column(tipo_parentesco_id);rel(fk)"`
 	CodigoAbreviacion string          `orm:"column(codigo_abreviacion);null"`
 	Activo            bool            `orm:"column(activo)"`
-	FechaCreacion     string       `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion string       `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion     string          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 type TerceroFamiliarConInfoComplementaria struct {
@@ -27,7 +29,7 @@ type TerceroFamiliarConInfoComplementaria struct {
 
 type TrPostInformacionFamiliar struct {
 	// Tercero_Familiar *Tercero
-	Familiares  		 *[]TerceroFamiliarConInfoComplementaria
+	Familiares *[]TerceroFamiliarConInfoComplementaria
 }
 
 func (t *TerceroFamiliar) TableName() string {
@@ -132,6 +134,9 @@ func GetAllTerceroFamiliar(query map[string]string, fields []string, sortby []st
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.HasSuffix(k, "__in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
 		} else {
 			qs = qs.Filter(k, v)
 		}

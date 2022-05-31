@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"github.com/astaxie/beego/orm"
 	"time"
+
+	"github.com/astaxie/beego/orm"
 )
 
 type Tercero struct {
@@ -20,9 +21,9 @@ type Tercero struct {
 	FechaNacimiento     *time.Time         `orm:"column(fecha_nacimiento);type(timestamp without time zone);null"`
 	Activo              bool               `orm:"column(activo)"`
 	TipoContribuyenteId *TipoContribuyente `orm:"column(tipo_contribuyente_id);rel(fk)"`
-	FechaCreacion       string          `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion   string          `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
-	UsuarioWSO2			string			   `orm:"column(usuario_wso2);null"`
+	FechaCreacion       string             `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion   string             `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	UsuarioWSO2         string             `orm:"column(usuario_wso2);null"`
 }
 
 func (t *Tercero) TableName() string {
@@ -64,6 +65,9 @@ func GetAllTercero(query map[string]string, fields []string, sortby []string, or
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.HasSuffix(k, "__in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
 		} else {
 			qs = qs.Filter(k, v)
 		}

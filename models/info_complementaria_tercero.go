@@ -3,19 +3,20 @@ package models
 import (
 	"errors"
 	"fmt"
-	"github.com/astaxie/beego/orm"
 	"reflect"
 	"strings"
+
+	"github.com/astaxie/beego/orm"
 )
 
 type InfoComplementariaTercero struct {
-	Id                   int                 `orm:"column(id);pk;auto"`
-	TerceroId            *Tercero            `orm:"column(tercero_id);rel(fk)"`
-	InfoComplementariaId *InfoComplementaria `orm:"column(info_complementaria_id);rel(fk)"`
-	Dato                 string              `orm:"column(dato);type(json);null"`
-	Activo               bool                `orm:"column(activo)"`
-	FechaCreacion        string           `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion    string           `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                       int                        `orm:"column(id);pk;auto"`
+	TerceroId                *Tercero                   `orm:"column(tercero_id);rel(fk)"`
+	InfoComplementariaId     *InfoComplementaria        `orm:"column(info_complementaria_id);rel(fk)"`
+	Dato                     string                     `orm:"column(dato);type(jsonb);null"`
+	Activo                   bool                       `orm:"column(activo)"`
+	FechaCreacion            string                     `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion        string                     `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 	InfoCompleTerceroPadreId *InfoComplementariaTercero `orm:"column(info_complementaria_tercero_padre_id);rel(fk);null"`
 }
 
@@ -34,7 +35,6 @@ func AddInfoComplementariaTercero(m *InfoComplementariaTercero) (id int64, err e
 	id, err = o.Insert(m)
 	return
 }
-
 
 // GetInfoComplementariaTerceroById retrieves InfoComplementariaTercero by Id. Returns error if
 // Id doesn't exist
@@ -59,6 +59,9 @@ func GetAllInfoComplementariaTercero(query map[string]string, fields []string, s
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.HasSuffix(k, "__in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
 		} else {
 			qs = qs.Filter(k, v)
 		}

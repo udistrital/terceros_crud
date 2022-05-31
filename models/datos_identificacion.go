@@ -5,8 +5,9 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
-	"github.com/astaxie/beego/orm"
 	"time"
+
+	"github.com/astaxie/beego/orm"
 )
 
 type DatosIdentificacion struct {
@@ -19,7 +20,7 @@ type DatosIdentificacion struct {
 	FechaExpedicion    *time.Time     `orm:"column(fecha_expedicion);type(timestamp without time zone);null"`
 	Activo             bool           `orm:"column(activo)"`
 	DocumentoSoporte   int            `orm:"column(documento_soporte);null"`
-	FechaCreacion      string	      `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaCreacion      string         `orm:"column(fecha_creacion);type(timestamp without time zone)"`
 	FechaModificacion  string         `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
@@ -62,6 +63,9 @@ func GetAllDatosIdentificacion(query map[string]string, fields []string, sortby 
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.HasSuffix(k, "__in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
 		} else {
 			qs = qs.Filter(k, v)
 		}

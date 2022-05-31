@@ -1,0 +1,1 @@
+INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('HERMANOS_EN_LA_UNIVERSIDAD', 'HERM_UD', TRUE, 70, LOCALTIMESTAMP, LOCALTIMESTAMP);

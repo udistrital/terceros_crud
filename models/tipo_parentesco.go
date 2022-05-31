@@ -5,17 +5,18 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+
 	"github.com/astaxie/beego/orm"
 )
 
 type TipoParentesco struct {
-	Id                int       `orm:"column(id);pk;auto"`
-	Nombre            string    `orm:"column(nombre)"`
-	Descripcion       string    `orm:"column(descripcion);null"`
-	CodigoAbreviacion string    `orm:"column(codigo_abreviacion);null"`
-	Activo            bool      `orm:"column(activo)"`
-	FechaCreacion     string 	`orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion string 	`orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	Id                int    `orm:"column(id);pk;auto"`
+	Nombre            string `orm:"column(nombre)"`
+	Descripcion       string `orm:"column(descripcion);null"`
+	CodigoAbreviacion string `orm:"column(codigo_abreviacion);null"`
+	Activo            bool   `orm:"column(activo)"`
+	FechaCreacion     string `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion string `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *TipoParentesco) TableName() string {
@@ -57,6 +58,9 @@ func GetAllTipoParentesco(query map[string]string, fields []string, sortby []str
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.HasSuffix(k, "__in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
 		} else {
 			qs = qs.Filter(k, v)
 		}

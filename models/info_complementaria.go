@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"reflect"
 	"strings"
+
 	"github.com/astaxie/beego/orm"
 )
 
@@ -15,8 +16,8 @@ type InfoComplementaria struct {
 	Activo                    bool                     `orm:"column(activo)"`
 	TipoDeDato                string                   `orm:"column(tipo_de_dato);null"`
 	GrupoInfoComplementariaId *GrupoInfoComplementaria `orm:"column(grupo_info_complementaria_id);rel(fk)"`
-	FechaCreacion             string                `orm:"column(fecha_creacion);type(timestamp without time zone)"`
-	FechaModificacion         string                `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
+	FechaCreacion             string                   `orm:"column(fecha_creacion);type(timestamp without time zone)"`
+	FechaModificacion         string                   `orm:"column(fecha_modificacion);type(timestamp without time zone)"`
 }
 
 func (t *InfoComplementaria) TableName() string {
@@ -58,6 +59,9 @@ func GetAllInfoComplementaria(query map[string]string, fields []string, sortby [
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
+		} else if strings.HasSuffix(k, "__in") {
+			arr := strings.Split(v, "|")
+			qs = qs.Filter(k, arr)
 		} else {
 			qs = qs.Filter(k, v)
 		}
