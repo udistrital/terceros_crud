@@ -41,8 +41,7 @@ func main() {
 		"postgres://"+beego.AppConfig.String("PGuser")+
 			":"+beego.AppConfig.String("PGpass")+
 			"@"+beego.AppConfig.String("PGurls")+
-			// TODO: Descomentar una vez exista TERCEROS_CRUD_PGPORT en el entorno
-			// ":"+beego.AppConfig.String("PGport")+
+			":"+beego.AppConfig.String("PGport")+
 			"/"+beego.AppConfig.String("PGdb")+
 			"?sslmode=disable&search_path="+beego.AppConfig.String("PGschemas")+"")
 	apistatus.Init()
