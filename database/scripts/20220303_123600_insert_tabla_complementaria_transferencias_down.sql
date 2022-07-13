@@ -1,1 +1,2 @@
-DELETE FROM terceros.info_complementaria WHERE grupo_info_complementaria_id = 70 AND codigo_abreviacion = 'HERM_UD';
+DELETE FROM terceros.info_complementaria
+WHERE codigo_abreviacion = 'HERM_UD';
