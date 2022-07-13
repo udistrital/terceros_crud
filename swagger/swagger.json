@@ -992,6 +992,35 @@
                 }
             }
         },
+        "/tercero/datos": {
+            "get": {
+                "tags": [
+                    "tercero"
+                ],
+                "description": "get Tercero",
+                "operationId": "TerceroController.Get All",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "string de busqueda",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.DatosIdentificacionTercero"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
         "/tercero/{id}": {
             "get": {
                 "tags": [
@@ -2363,6 +2392,19 @@
                 },
                 "TipoDocumentoId": {
                     "$ref": "#/definitions/models.TipoDocumento"
+                }
+            }
+        },
+        "models.DatosIdentificacionTercero": {
+            "title": "DatosIdentificacionTercero",
+            "type": "object",
+            "properties": {
+                "compuesto": {
+                    "type": "string"
+                },
+                "tercero_id": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },

@@ -25,6 +25,7 @@ func (c *TerceroController) URLMapping() {
 	c.Mapping("GetAll", c.GetAll)
 	c.Mapping("Put", c.Put)
 	c.Mapping("Delete", c.Delete)
+	c.Mapping("GetAllDatos", c.GetAllDatos)
 }
 
 // Post ...
@@ -200,6 +201,27 @@ func (c *TerceroController) Delete() {
 		//c.Data["development"] = map[string]interface{}{"Code": "000", "Body": err.Error(), "Type": "error"}
 		c.Data["system"] = err
 		c.Abort("404")
+	}
+	c.ServeJSON()
+}
+
+// GetAllDatos ...
+// @Title Get All
+// @Description get Tercero
+// @Param	query	query	string	true	"string de busqueda"
+// @Success 200 {object} models.DatosIdentificacionTercero
+// @Failure 404 not found resource
+// @router /datos [get]
+func (c *TerceroController) GetAllDatos() {
+	idStr := c.GetString("query")
+	var terceros *[]*models.DatosIdentificacionTercero
+	if err := models.GetAllDatosIdentificacionTercero(idStr, terceros); err != nil {
+		c.Abort("500")
+	}
+	if len(*terceros) == 0 {
+		c.Data["json"] = []interface{}{}
+	} else {
+		c.Data["json"] = terceros
 	}
 	c.ServeJSON()
 }

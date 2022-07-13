@@ -14,8 +14,7 @@ type DatosIdentificacionTercero struct {
 func GetAllDatosIdentificacionTercero(search string, terceros *[]*DatosIdentificacionTercero) (err error) {
 	o := orm.NewOrm()
 
-	var query string
-	query = `
+	query := `
 	WITH sin_doc AS (
 		SELECT t.id tercero_id,
 			t.nombre_completo compuesto
@@ -63,7 +62,6 @@ func GetAllDatosIdentificacionTercero(search string, terceros *[]*DatosIdentific
 	for _, tr := range *terceros {
 		fmt.Println(tr.TerceroId, tr.Compuesto)
 	}
-
 	fmt.Println("Número", len(*terceros))
 
 	return
