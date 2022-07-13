@@ -21,7 +21,6 @@ func init() {
 func (m *CrearTablaDatosIdentificacion_20191025_123156) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("CREATE TABLE IF NOT EXISTS terceros.datos_identificacion( id serial NOT NULL, tipo_documento_id integer NOT NULL, tercero_id integer NOT NULL, numero character varying(50) NOT NULL, digito_verificacion numeric(2,0), ciudad_expedicion integer, fecha_expedicion TIMESTAMP, activo boolean NOT NULL, documento_soporte integer, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_datos_identificacion PRIMARY KEY (id), CONSTRAINT fk_tipo_documento_datos_identificacion FOREIGN KEY (tipo_documento_id) REFERENCES terceros.tipo_documento(id), CONSTRAINT fk_tercero_datos_identificacion FOREIGN KEY (tercero_id) REFERENCES terceros.tercero(id) );")
-	m.SQL("ALTER TABLE terceros.datos_identificacion OWNER TO desarrollooas;")
 	m.SQL("COMMENT ON TABLE terceros.datos_identificacion IS 'Tabla que almacena el numero de identificación de un tercero y lo relaciona con su tipo pudiendo ser este CC, CE, NIT entre otros.';")
 	m.SQL("COMMENT ON COLUMN terceros.datos_identificacion.id IS 'Identificador unico de la tabla datos_identificacion.';")
 	m.SQL("COMMENT ON COLUMN terceros.datos_identificacion.tipo_documento_id IS 'Identificador unico de la tabla tipo_documento';")

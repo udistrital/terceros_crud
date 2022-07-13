@@ -21,7 +21,6 @@ func init() {
 func (m *CrearTablaTipoDocumento_20191025_115705) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("CREATE TABLE IF NOT EXISTS terceros.tipo_documento( id serial NOT NULL, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, numero_orden numeric(5,2), fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_tipo_documento PRIMARY KEY (id) );")
-	m.SQL("ALTER TABLE terceros.tipo_documento OWNER TO desarrollooas;")
 	m.SQL("COMMENT ON TABLE terceros.tipo_documento IS 'Tabla que parametriza los diferentes tipos de documento que puede tener una persona juridica o natural.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_documento.id IS 'Identificador unico de la tabla tipo_documento.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_documento.nombre IS 'Campo obligatorio de la tabla que indica el nombre del parámetro.';")

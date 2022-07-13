@@ -21,7 +21,6 @@ func init() {
 func (m *CrearTablaTipoParentesco_20191025_142847) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("CREATE TABLE IF NOT EXISTS terceros.tipo_parentesco( id serial NOT NULL, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_tipo_parentesco PRIMARY KEY (id) );")
-	m.SQL("ALTER TABLE terceros.tipo_parentesco OWNER TO desarrollooas;")
 	m.SQL("COMMENT ON TABLE terceros.tipo_parentesco IS 'Tabla que parametriza a los tipos de parentescos que puede tener un tercero en relacion a otro, sean estos: Madre, Padre, Conyuge, Hijos, entre otros.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_parentesco.id IS 'Identificador unico de la tabla tipo_parentesco.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_parentesco.nombre IS 'Campo obligatorio de la tabla que indica el nombre del parámetro.';")
@@ -30,7 +29,6 @@ func (m *CrearTablaTipoParentesco_20191025_142847) Up() {
 	m.SQL("COMMENT ON COLUMN terceros.tipo_parentesco.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_parentesco.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_parentesco.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';")
-	
 }
 
 // Reverse the migrations

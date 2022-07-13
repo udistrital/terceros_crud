@@ -21,7 +21,6 @@ func init() {
 func (m *CrearTablaTipoContribuyente_20191025_115710) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("CREATE TABLE IF NOT EXISTS terceros.tipo_contribuyente( id serial NOT NULL, nombre character varying(100) NOT NULL, descripcion character varying(100), codigo_abreviacion character varying(20), activo boolean NOT NULL, fecha_creacion TIMESTAMP NOT NULL, fecha_modificacion TIMESTAMP NOT NULL, CONSTRAINT pk_tipo_contribuyente PRIMARY KEY (id) );")
-	m.SQL("ALTER TABLE terceros.tipo_contribuyente OWNER TO desarrollooas;")
 	m.SQL("COMMENT ON TABLE terceros.tipo_contribuyente IS 'Tabla que parametriza los Tipos de contribuyentes: PersonaNatural - Persona Juridica';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_contribuyente.id IS 'Identificador unico de la tabla tipo_contribuyente.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_contribuyente.nombre IS 'Campo obligatorio de la tabla que indica el nombre del parámetro.';")
