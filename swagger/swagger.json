@@ -1024,6 +1024,35 @@
                 }
             }
         },
+        "/tercero/datos/{id}": {
+            "get": {
+                "tags": [
+                    "tercero"
+                ],
+                "description": "Consulta en las tablas tercero y datos_identificacion el tercero indicado",
+                "operationId": "TerceroController.GetAllTrTerceroIdentificacion",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "tercero_id que se consulta",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.DatosIdentificacionTercero"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
         "/tercero/{id}": {
             "get": {
                 "tags": [

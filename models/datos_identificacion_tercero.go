@@ -59,3 +59,50 @@ func GetAllDatosIdentificacionTercero(search string, terceros *[]*DatosIdentific
 
 	return
 }
+
+// GetTrIdentificacionTercero Consulta el nombre del tercero y el documento de identificación (uno solo) sí existe
+func GetTrIdentificacionTercero(terceroId int, data *DatosIdentificacionTercero) (err error) {
+	o := orm.NewOrm()
+
+	query := `
+	WITH sin_doc AS (
+		SELECT t.id tercero_id,
+			t.nombre_completo compuesto
+		FROM terceros.tercero t
+		WHERE t.id = ?
+			AND NOT EXISTS (
+				(SELECT 1
+					FROM terceros.datos_identificacion di
+					WHERE di.tercero_id = t.id
+				)
+			)
+	), con_doc AS (
+		SELECT di.tercero_id,
+			CONCAT(codigo_abreviacion, ' ', numero, ' ', nombre_completo) compuesto
+		FROM terceros.tercero t,
+			terceros.datos_identificacion di,
+			terceros.tipo_documento td
+		WHERE t.id = ?
+			AND di.activo = TRUE
+			AND di.tercero_id = t.id
+			AND td.id = di.tipo_documento_id
+		ORDER BY td.id DESC
+		LIMIT 1
+	)
+
+	SELECT *
+	FROM sin_doc
+	UNION ALL
+	SELECT *
+	FROM con_doc;
+	`
+
+	var data_ []*DatosIdentificacionTercero
+	if _, err := o.Raw(query, terceroId, terceroId).QueryRows(&data_); err != nil {
+		return err
+	} else if len(data_) == 1 {
+		*data = *data_[0]
+	}
+
+	return
+}

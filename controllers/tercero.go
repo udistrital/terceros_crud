@@ -26,6 +26,7 @@ func (c *TerceroController) URLMapping() {
 	c.Mapping("Put", c.Put)
 	c.Mapping("Delete", c.Delete)
 	c.Mapping("GetAllTrTerceroIdentificacion", c.GetAllTrTerceroIdentificacion)
+	c.Mapping("GetTrIdentificacionTercero", c.GetTrIdentificacionTercero)
 }
 
 // Post ...
@@ -223,5 +224,30 @@ func (c *TerceroController) GetAllTrTerceroIdentificacion() {
 	}
 
 	c.Data["json"] = terceros
+	c.ServeJSON()
+}
+
+// GetTrIdentificacionTercero ...
+// @Title GetAllTrTerceroIdentificacion
+// @Description Consulta en las tablas tercero y datos_identificacion el tercero indicado
+// @Param	id	path	string	true	"tercero_id que se consulta"
+// @Success 200 {object} models.DatosIdentificacionTercero
+// @Failure 404 not found resource
+// @router /datos/:id [get]
+func (c *TerceroController) GetTrIdentificacionTercero() {
+
+	var id int
+	if v, err := c.GetInt(":id"); err != nil || v <= 0 {
+		c.Abort("400")
+	} else {
+		id = v
+	}
+
+	var tercero models.DatosIdentificacionTercero
+	if err := models.GetTrIdentificacionTercero(id, &tercero); err != nil {
+		c.Abort("500")
+	}
+
+	c.Data["json"] = tercero
 	c.ServeJSON()
 }
