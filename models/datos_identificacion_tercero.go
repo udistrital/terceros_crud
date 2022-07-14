@@ -1,8 +1,6 @@
 package models
 
 import (
-	"fmt"
-
 	"github.com/astaxie/beego/orm"
 )
 
@@ -58,11 +56,6 @@ func GetAllDatosIdentificacionTercero(search string, terceros *[]*DatosIdentific
 	if _, err := o.Raw(query, search_, search_).QueryRows(terceros); err != nil {
 		return err
 	}
-
-	for _, tr := range *terceros {
-		fmt.Println(tr.TerceroId, tr.Compuesto)
-	}
-	fmt.Println("Número", len(*terceros))
 
 	return
 }

@@ -25,7 +25,7 @@ func (c *TerceroController) URLMapping() {
 	c.Mapping("GetAll", c.GetAll)
 	c.Mapping("Put", c.Put)
 	c.Mapping("Delete", c.Delete)
-	c.Mapping("GetAllDatos", c.GetAllDatos)
+	c.Mapping("GetAllTrTerceroIdentificacion", c.GetAllTrTerceroIdentificacion)
 }
 
 // Post ...
@@ -205,23 +205,23 @@ func (c *TerceroController) Delete() {
 	c.ServeJSON()
 }
 
-// GetAllDatos ...
-// @Title Get All
-// @Description get Tercero
-// @Param	query	query	string	true	"string de busqueda"
-// @Success 200 {object} models.DatosIdentificacionTercero
+// GetAllTrTerceroIdentificacion ...
+// @Title GetAllTrTerceroIdentificacion
+// @Description Consulta en las tablas tercero y datos_identificacion el string suministrado
+// @Param	query	query	string	true	"tipo documento + numero documento + nombre completo"
+// @Success 200 {object} []models.DatosIdentificacionTercero
 // @Failure 404 not found resource
 // @router /datos [get]
-func (c *TerceroController) GetAllDatos() {
-	idStr := c.GetString("query")
-	var terceros *[]*models.DatosIdentificacionTercero
-	if err := models.GetAllDatosIdentificacionTercero(idStr, terceros); err != nil {
-		c.Abort("500")
+func (c *TerceroController) GetAllTrTerceroIdentificacion() {
+
+	query := c.GetString("query")
+	var terceros = make([]*models.DatosIdentificacionTercero, 0)
+	if query != "" {
+		if err := models.GetAllDatosIdentificacionTercero(query, &terceros); err != nil {
+			c.Abort("500")
+		}
 	}
-	if len(*terceros) == 0 {
-		c.Data["json"] = []interface{}{}
-	} else {
-		c.Data["json"] = terceros
-	}
+
+	c.Data["json"] = terceros
 	c.ServeJSON()
 }

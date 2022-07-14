@@ -286,6 +286,15 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["github.com/udistrital/terceros_crud/controllers:TerceroController"] = append(beego.GlobalControllerRouter["github.com/udistrital/terceros_crud/controllers:TerceroController"],
+        beego.ControllerComments{
+            Method: "GetAllTrTerceroIdentificacion",
+            Router: `/datos`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
     beego.GlobalControllerRouter["github.com/udistrital/terceros_crud/controllers:TerceroFamiliarController"] = append(beego.GlobalControllerRouter["github.com/udistrital/terceros_crud/controllers:TerceroFamiliarController"],
         beego.ControllerComments{
             Method: "Post",

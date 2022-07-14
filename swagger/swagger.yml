@@ -717,19 +717,22 @@ paths:
     get:
       tags:
       - tercero
-      description: get Tercero
-      operationId: TerceroController.Get All
+      description: Consulta en las tablas tercero y datos_identificacion el string
+        suministrado
+      operationId: TerceroController.GetAllTrTerceroIdentificacion
       parameters:
       - in: query
         name: query
-        description: string de busqueda
+        description: tipo documento + numero documento + nombre completo
         required: true
         type: string
       responses:
         "200":
           description: ""
           schema:
-            $ref: '#/definitions/models.DatosIdentificacionTercero'
+            type: array
+            items:
+              $ref: '#/definitions/models.DatosIdentificacionTercero'
         "404":
           description: not found resource
   /tercero_familiar/:
