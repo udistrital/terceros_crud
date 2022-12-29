@@ -31,7 +31,7 @@ func (m *InsertOrientSexIdentGen_20220930_094532) Up() {
 	}
 
 	requests := strings.Split(string(file), ";")
-	requests = []string{}
+
 	for _, request := range requests {
 		fmt.Println(request)
 		m.SQL(request)
