@@ -212,11 +212,11 @@ func (c *TerceroController) Delete() {
 // @Param	query	query	string	true	"tipo documento + numero documento + nombre completo"
 // @Success 200 {object} []models.DatosIdentificacionTercero
 // @Failure 404 not found resource
-// @router /datos [get]
+// @router /identificacion [get]
 func (c *TerceroController) GetAllTrTerceroIdentificacion() {
 
 	query := c.GetString("query")
-	var terceros = make([]*models.DatosIdentificacionTercero, 0)
+	var terceros = make([]models.DatosIdentificacionTercero_, 0)
 	if query != "" {
 		if err := models.GetAllDatosIdentificacionTercero(query, &terceros); err != nil {
 			c.Abort("500")
@@ -233,7 +233,7 @@ func (c *TerceroController) GetAllTrTerceroIdentificacion() {
 // @Param	id	path	string	true	"tercero_id que se consulta"
 // @Success 200 {object} models.DatosIdentificacionTercero
 // @Failure 404 not found resource
-// @router /datos/:id [get]
+// @router /identificacion/:id [get]
 func (c *TerceroController) GetTrIdentificacionTercero() {
 
 	var id int
@@ -243,7 +243,7 @@ func (c *TerceroController) GetTrIdentificacionTercero() {
 		id = v
 	}
 
-	var tercero models.DatosIdentificacionTercero
+	var tercero models.DatosIdentificacionTercero_
 	if err := models.GetTrIdentificacionTercero(id, &tercero); err != nil {
 		c.Abort("500")
 	}

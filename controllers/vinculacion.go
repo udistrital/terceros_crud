@@ -210,7 +210,7 @@ func (c *VinculacionController) Delete() {
 // @Description Consulta en las tablas vinculcación, tercero y datos_identificacion el string suministrado
 // @Param	query			query	string	true	"tipo documento + numero documento + nombre completo"
 // @Param	vinculaciones	query	string	false	"tipo_vinculacion_id separados por comas"
-// @Success 200 {object} []models.DatosIdentificacionTercero_
+// @Success 200 {object} []models.DatosIdentificacion
 // @Failure 404 not found resource
 // @router /identificacion [get]
 func (c *VinculacionController) GetAllTrVinculacionIdentificacion() {

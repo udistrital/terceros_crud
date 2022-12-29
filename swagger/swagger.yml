@@ -719,7 +719,7 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
-  /tercero/datos:
+  /tercero/identificacion:
     get:
       tags:
       - tercero
@@ -741,7 +741,7 @@ paths:
               $ref: '#/definitions/models.DatosIdentificacionTercero'
         "404":
           description: not found resource
-  /tercero/datos/{id}:
+  /tercero/identificacion/{id}:
     get:
       tags:
       - tercero
@@ -1607,16 +1607,10 @@ paths:
           schema:
             type: array
             items:
-              $ref: '#/definitions/models.DatosIdentificacionTercero_'
+              $ref: '#/definitions/models.DatosIdentificacion'
         "404":
           description: not found resource
 definitions:
-  61653.0xc001ef1530.false:
-    title: "false"
-    type: object
-  61726.0xc001ef1590.false:
-    title: "false"
-    type: object
   models.DatosIdentificacion:
     title: DatosIdentificacion
     type: object
@@ -1657,14 +1651,6 @@ definitions:
       tercero_id:
         type: integer
         format: int64
-  models.DatosIdentificacionTercero_:
-    title: DatosIdentificacionTercero_
-    type: object
-    properties:
-      Identificacion:
-        $ref: '#/definitions/61726.0xc001ef1590.false'
-      Tercero:
-        $ref: '#/definitions/61653.0xc001ef1530.false'
   models.GrupoInfoComplementaria:
     title: GrupoInfoComplementaria
     type: object
