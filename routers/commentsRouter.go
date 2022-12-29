@@ -628,4 +628,13 @@ func init() {
             Filters: nil,
             Params: nil})
 
+    beego.GlobalControllerRouter["github.com/udistrital/terceros_crud/controllers:VinculacionController"] = append(beego.GlobalControllerRouter["github.com/udistrital/terceros_crud/controllers:VinculacionController"],
+        beego.ControllerComments{
+            Method: "GetAllTrVinculacionIdentificacion",
+            Router: `/identificacion`,
+            AllowHTTPMethods: []string{"get"},
+            MethodParams: param.Make(),
+            Filters: nil,
+            Params: nil})
+
 }
