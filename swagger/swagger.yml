@@ -719,6 +719,48 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
+  /tercero/datos:
+    get:
+      tags:
+      - tercero
+      description: Consulta en las tablas tercero y datos_identificacion el string
+        suministrado
+      operationId: TerceroController.GetAllTrTerceroIdentificacion
+      parameters:
+      - in: query
+        name: query
+        description: tipo documento + numero documento + nombre completo
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.DatosIdentificacionTercero'
+        "404":
+          description: not found resource
+  /tercero/datos/{id}:
+    get:
+      tags:
+      - tercero
+      description: Consulta en las tablas tercero y datos_identificacion el tercero
+        indicado
+      operationId: TerceroController.GetAllTrTerceroIdentificacion
+      parameters:
+      - in: path
+        name: id
+        description: tercero_id que se consulta
+        required: true
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            $ref: '#/definitions/models.DatosIdentificacionTercero'
+        "404":
+          description: not found resource
   /tercero_familiar/:
     get:
       tags:
@@ -1542,7 +1584,39 @@ paths:
           description: '{string} delete success!'
         "404":
           description: not found resource
+  /vinculacion/identificacion:
+    get:
+      tags:
+      - vinculacion
+      description: Consulta en las tablas vinculcación, tercero y datos_identificacion
+        el string suministrado
+      operationId: VinculacionController.GetAllTrVinculacionIdentificacion
+      parameters:
+      - in: query
+        name: query
+        description: tipo documento + numero documento + nombre completo
+        required: true
+        type: string
+      - in: query
+        name: vinculaciones
+        description: tipo_vinculacion_id separados por comas
+        type: string
+      responses:
+        "200":
+          description: ""
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/models.DatosIdentificacionTercero_'
+        "404":
+          description: not found resource
 definitions:
+  61653.0xc001ef1530.false:
+    title: "false"
+    type: object
+  61726.0xc001ef1590.false:
+    title: "false"
+    type: object
   models.DatosIdentificacion:
     title: DatosIdentificacion
     type: object
@@ -1574,6 +1648,23 @@ definitions:
         $ref: '#/definitions/models.Tercero'
       TipoDocumentoId:
         $ref: '#/definitions/models.TipoDocumento'
+  models.DatosIdentificacionTercero:
+    title: DatosIdentificacionTercero
+    type: object
+    properties:
+      compuesto:
+        type: string
+      tercero_id:
+        type: integer
+        format: int64
+  models.DatosIdentificacionTercero_:
+    title: DatosIdentificacionTercero_
+    type: object
+    properties:
+      Identificacion:
+        $ref: '#/definitions/61726.0xc001ef1590.false'
+      Tercero:
+        $ref: '#/definitions/61653.0xc001ef1530.false'
   models.GrupoInfoComplementaria:
     title: GrupoInfoComplementaria
     type: object
