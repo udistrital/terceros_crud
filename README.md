@@ -76,6 +76,7 @@ Pruebas unitarias
 ## Modelo de Datos
 
 <!-- TODO: Limpiar versiones anteriores (y el siguiente link), para eso es Git -->
+Además de las operaciones crud, se tienen servicios que permiten filtrar por número de identificación y/o nombre completo (total o parcial).
 
 [Modelo de Datos Relacional terceros_crud](./sql/Terceros_Schema.png) -
 [SVG](database/terceros.svg) -

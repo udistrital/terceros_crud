@@ -63,7 +63,7 @@ func scriptVinculaciones(tipos string) (script string) {
 			AND compuesto LIKE UPPER(?)
 			AND di.tercero_id = t.id
 			AND td.id = di.tipo_documento_id
-			AND v.activo = true
+			AND v.activo = TRUE
 			AND t.activo = TRUE
 			AND di.activo = TRUE
 		ORDER BY 1, 6 DESC
@@ -84,6 +84,7 @@ func scriptVinculaciones(tipos string) (script string) {
 
 	script += `
 			AND v.tercero_principal_id = t.id
+			AND v.activo = TRUE
 			AND t.activo = TRUE
 			AND NOT EXISTS (
 				SELECT 1

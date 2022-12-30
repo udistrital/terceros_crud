@@ -992,7 +992,7 @@
                 }
             }
         },
-        "/tercero/datos": {
+        "/tercero/identificacion": {
             "get": {
                 "tags": [
                     "tercero"
@@ -1024,7 +1024,7 @@
                 }
             }
         },
-        "/tercero/datos/{id}": {
+        "/tercero/identificacion/{id}": {
             "get": {
                 "tags": [
                     "tercero"
@@ -2320,7 +2320,7 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "$ref": "#/definitions/models.DatosIdentificacionTercero_"
+                                "$ref": "#/definitions/models.DatosIdentificacion"
                             }
                         }
                     },
@@ -2421,14 +2421,6 @@
         }
     },
     "definitions": {
-        "61653.0xc001ef1530.false": {
-            "title": "false",
-            "type": "object"
-        },
-        "61726.0xc001ef1590.false": {
-            "title": "false",
-            "type": "object"
-        },
         "models.DatosIdentificacion": {
             "title": "DatosIdentificacion",
             "type": "object",
@@ -2483,18 +2475,6 @@
                 "tercero_id": {
                     "type": "integer",
                     "format": "int64"
-                }
-            }
-        },
-        "models.DatosIdentificacionTercero_": {
-            "title": "DatosIdentificacionTercero_",
-            "type": "object",
-            "properties": {
-                "Identificacion": {
-                    "$ref": "#/definitions/61726.0xc001ef1590.false"
-                },
-                "Tercero": {
-                    "$ref": "#/definitions/61653.0xc001ef1530.false"
                 }
             }
         },
