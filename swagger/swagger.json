@@ -992,6 +992,67 @@
                 }
             }
         },
+        "/tercero/identificacion": {
+            "get": {
+                "tags": [
+                    "tercero"
+                ],
+                "description": "Consulta en las tablas tercero y datos_identificacion el string suministrado",
+                "operationId": "TerceroController.GetAllTrTerceroIdentificacion",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "tipo documento + numero documento + nombre completo",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.DatosIdentificacionTercero"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
+        "/tercero/identificacion/{id}": {
+            "get": {
+                "tags": [
+                    "tercero"
+                ],
+                "description": "Consulta en las tablas tercero y datos_identificacion el tercero indicado",
+                "operationId": "TerceroController.GetAllTrTerceroIdentificacion",
+                "parameters": [
+                    {
+                        "in": "path",
+                        "name": "id",
+                        "description": "tercero_id que se consulta",
+                        "required": true,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "$ref": "#/definitions/models.DatosIdentificacionTercero"
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
         "/tercero/{id}": {
             "get": {
                 "tags": [
@@ -2231,6 +2292,44 @@
                 }
             }
         },
+        "/vinculacion/identificacion": {
+            "get": {
+                "tags": [
+                    "vinculacion"
+                ],
+                "description": "Consulta en las tablas vinculcación, tercero y datos_identificacion el string suministrado",
+                "operationId": "VinculacionController.GetAllTrVinculacionIdentificacion",
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "query",
+                        "description": "tipo documento + numero documento + nombre completo",
+                        "required": true,
+                        "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "vinculaciones",
+                        "description": "tipo_vinculacion_id separados por comas",
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "$ref": "#/definitions/models.DatosIdentificacion"
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "not found resource"
+                    }
+                }
+            }
+        },
         "/vinculacion/{id}": {
             "get": {
                 "tags": [
@@ -2363,6 +2462,19 @@
                 },
                 "TipoDocumentoId": {
                     "$ref": "#/definitions/models.TipoDocumento"
+                }
+            }
+        },
+        "models.DatosIdentificacionTercero": {
+            "title": "DatosIdentificacionTercero",
+            "type": "object",
+            "properties": {
+                "compuesto": {
+                    "type": "string"
+                },
+                "tercero_id": {
+                    "type": "integer",
+                    "format": "int64"
                 }
             }
         },
