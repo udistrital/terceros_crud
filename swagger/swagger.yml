@@ -1601,6 +1601,14 @@ paths:
         name: vinculaciones
         description: tipo_vinculacion_id separados por comas
         type: string
+      - in: query
+        name: cargos
+        description: cargo_id separados por comas
+        type: string
+      - in: query
+        name: dependencias
+        description: dependencia_id separados por comas
+        type: string
       responses:
         "200":
           description: ""
