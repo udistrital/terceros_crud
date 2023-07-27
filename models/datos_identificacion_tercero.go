@@ -35,7 +35,7 @@ func GetAllDatosIdentificacionTercero(search string, terceros *[]DatosIdentifica
 		WHERE
 				compuesto LIKE UPPER(?)
 			and t.activo = true
-			and (di.id is null or di.activo = true)
+			-- and (di.id is null or di.activo = true)
 			and (td.id is null or td.codigo_abreviacion != 'CODE')
 		ORDER BY 1, 6 DESC
 	)

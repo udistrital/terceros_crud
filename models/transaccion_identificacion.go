@@ -44,7 +44,7 @@ func scriptVinculaciones(tiposVinculacion, cargos, dependencia string) (script s
 		FROM
 			terceros.vinculacion v,
 			terceros.tercero t
-			INNER JOIN terceros.datos_identificacion di
+			LEFT JOIN terceros.datos_identificacion di
 				ON di.tercero_id = t.id
 			LEFT JOIN terceros.tipo_documento td
 				ON td.id = di.tipo_documento_id,
@@ -56,7 +56,8 @@ func scriptVinculaciones(tiposVinculacion, cargos, dependencia string) (script s
 		WHERE
 				compuesto LIKE UPPER(?)
 			AND t.activo = true
-			AND (di.id is null or di.activo = true)
+			AND v.activo = true
+			-- AND (di.id is null or di.activo = true)
 			AND (td.id is null or td.codigo_abreviacion != 'CODE')
 			AND v.tercero_principal_id = t.id
 			COND_TIPO_VINCULACION_ID

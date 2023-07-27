@@ -222,7 +222,7 @@ func (c *VinculacionController) GetAllTrVinculacionIdentificacion() {
 	cargos := c.GetString("cargos")
 	dependencias := c.GetString("dependencias")
 	var terceros = make([]models.DatosIdentificacionTercero_, 0)
-	if query != "" {
+	if query != "" || vinculaciones != "" || cargos != "" || dependencias != "" {
 		if err := models.GetAllDatosIdentificacionVinculacion(query, vinculaciones, cargos, dependencias, &terceros); err != nil {
 			c.Abort("500")
 		}
