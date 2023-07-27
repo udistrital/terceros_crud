@@ -210,6 +210,8 @@ func (c *VinculacionController) Delete() {
 // @Description Consulta en las tablas vinculcación, tercero y datos_identificacion el string suministrado
 // @Param	query			query	string	true	"tipo documento + numero documento + nombre completo"
 // @Param	vinculaciones	query	string	false	"tipo_vinculacion_id separados por comas"
+// @Param	cargos			query	string	false	"cargo_id separados por comas"
+// @Param	dependencias	query	string	false	"dependencia_id separados por comas"
 // @Success 200 {object} []models.DatosIdentificacion
 // @Failure 404 not found resource
 // @router /identificacion [get]
@@ -217,9 +219,11 @@ func (c *VinculacionController) GetAllTrVinculacionIdentificacion() {
 
 	query := c.GetString("query")
 	vinculaciones := c.GetString("vinculaciones")
+	cargos := c.GetString("cargos")
+	dependencias := c.GetString("dependencias")
 	var terceros = make([]models.DatosIdentificacionTercero_, 0)
-	if query != "" {
-		if err := models.GetAllDatosIdentificacionVinculacion(query, vinculaciones, &terceros); err != nil {
+	if query != "" || vinculaciones != "" || cargos != "" || dependencias != "" {
+		if err := models.GetAllDatosIdentificacionVinculacion(query, vinculaciones, cargos, dependencias, &terceros); err != nil {
 			c.Abort("500")
 		}
 	}
