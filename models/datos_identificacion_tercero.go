@@ -1,6 +1,8 @@
 package models
 
 import (
+	"strings"
+
 	"github.com/astaxie/beego/orm"
 )
 
@@ -9,7 +11,7 @@ type DatosIdentificacionTercero struct {
 	Compuesto string `json:"compuesto"`
 }
 
-func GetAllDatosIdentificacionTercero(search string, terceros *[]DatosIdentificacionTercero_) (err error) {
+func GetAllDatosIdentificacionTercero(documento, search string, terceros *[]DatosIdentificacionTercero_) (err error) {
 	o := orm.NewOrm()
 
 	query := `
@@ -26,18 +28,11 @@ func GetAllDatosIdentificacionTercero(search string, terceros *[]DatosIdentifica
 			LEFT JOIN terceros.datos_identificacion di
 				ON di.tercero_id = t.id
 			LEFT JOIN terceros.tipo_documento td
-				ON td.id = di.tipo_documento_id,
-			CONCAT(
-				UPPER(td.codigo_abreviacion), ' ',
-				UPPER(di.numero), ' ',
-				UPPER(t.nombre_completo)
-				) compuesto
-		WHERE
-				compuesto LIKE UPPER(?)
+				ON td.id = di.tipo_documento_id AND di.activo = TRUE
+		WHERE COND_TERCERO
 			and t.activo = true
-			-- and (di.id is null or di.activo = true)
 			and (td.id is null or td.codigo_abreviacion != 'CODE')
-		ORDER BY 1, 6 DESC
+		ORDER BY 1 ASC, 6 DESC
 	)
 
 	SELECT *
@@ -45,11 +40,25 @@ func GetAllDatosIdentificacionTercero(search string, terceros *[]DatosIdentifica
 	ORDER BY 2;
 	`
 
-	_, err = o.Raw(query, "%"+search+"%").QueryRows(terceros)
+	parameter := ""
+	filter := ""
+	if documento != "" {
+		filter = "di.numero = ?"
+		parameter = documento
+	} else {
+		filter = `CONCAT(
+				UPPER(td.codigo_abreviacion), ' ',
+				UPPER(di.numero), ' ',
+				UPPER(t.nombre_completo)) LIKE UPPER(?)`
+		parameter = "%" + search + "%"
+	}
+
+	query = strings.ReplaceAll(query, "COND_TERCERO", filter)
+	_, err = o.Raw(query, parameter).QueryRows(terceros)
 	return
 }
 
-// GetTrIdentificacionTercero Consulta el nombre del tercero y el documento de identificación (uno solo) sí existe
+// GetTrIdentificacionTercero Consulta el nombre del tercero y el documento de identificación (uno solo) si existe
 func GetTrIdentificacionTercero(terceroId int, data *DatosIdentificacionTercero_) (err error) {
 	o := orm.NewOrm()
 

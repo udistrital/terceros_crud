@@ -1006,6 +1006,13 @@
                         "description": "tipo documento + numero documento + nombre completo",
                         "required": true,
                         "type": "string"
+                    },
+                    {
+                        "in": "query",
+                        "name": "documento",
+                        "description": "numero documento",
+                        "required": true,
+                        "type": "string"
                     }
                 ],
                 "responses": {
