@@ -63,7 +63,7 @@ func scriptVinculaciones(tiposVinculacion, cargos, dependencia string) (script s
 			COND_TIPO_VINCULACION_ID
 			COND_CARGO_ID
 			COND_DEPENDENCIA_ID
-		ORDER BY 1, 6 DESC
+		ORDER BY 1 ASC, 6 DESC
 	)
 
 	SELECT *

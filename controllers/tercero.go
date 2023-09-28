@@ -209,16 +209,18 @@ func (c *TerceroController) Delete() {
 // GetAllTrTerceroIdentificacion ...
 // @Title GetAllTrTerceroIdentificacion
 // @Description Consulta en las tablas tercero y datos_identificacion el string suministrado
-// @Param	query	query	string	true	"tipo documento + numero documento + nombre completo"
+// @Param	query		query	string	true	"tipo documento + numero documento + nombre completo"
+// @Param	documento	query	string	true	"numero documento"
 // @Success 200 {object} []models.DatosIdentificacionTercero
 // @Failure 404 not found resource
 // @router /identificacion [get]
 func (c *TerceroController) GetAllTrTerceroIdentificacion() {
 
 	query := c.GetString("query")
+	documento := c.GetString("documento")
 	var terceros = make([]models.DatosIdentificacionTercero_, 0)
-	if query != "" {
-		if err := models.GetAllDatosIdentificacionTercero(query, &terceros); err != nil {
+	if query != "" || documento != "" {
+		if err := models.GetAllDatosIdentificacionTercero(documento, query, &terceros); err != nil {
 			c.Abort("500")
 		}
 	}
