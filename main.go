@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/url"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
@@ -39,7 +41,7 @@ func main() {
 	//Prueba CI - 2
 	orm.RegisterDataBase("default", "postgres",
 		"postgres://"+beego.AppConfig.String("PGuser")+
-			":"+beego.AppConfig.String("PGpass")+
+			":"+url.QueryEscape(beego.AppConfig.String("PGpass"))+
 			"@"+beego.AppConfig.String("PGurls")+
 			// TODO: Descomentar una vez exista TERCEROS_CRUD_PGPORT en el entorno
 			// ":"+beego.AppConfig.String("PGport")+
