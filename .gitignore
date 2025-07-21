@@ -7,9 +7,6 @@
 terceros_crud
 main
 
-go.mod
-go.sum
-
 # Variables de entorno - ignorar todas
 *.env
 # Excepto una plantilla
