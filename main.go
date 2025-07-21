@@ -1,6 +1,8 @@
 package main
 
 import (
+	"net/url"
+
 	"github.com/astaxie/beego"
 	"github.com/astaxie/beego/orm"
 	"github.com/astaxie/beego/plugins/cors"
@@ -9,6 +11,7 @@ import (
 	_ "github.com/udistrital/terceros_crud/routers"
 	apistatus "github.com/udistrital/utils_oas/apiStatusLib"
 	"github.com/udistrital/utils_oas/customerror"
+	"github.com/udistrital/utils_oas/xray"
 )
 
 func test() {
@@ -39,13 +42,14 @@ func main() {
 	//Prueba CI - 2
 	orm.RegisterDataBase("default", "postgres",
 		"postgres://"+beego.AppConfig.String("PGuser")+
-			":"+beego.AppConfig.String("PGpass")+
+			":"+url.QueryEscape(beego.AppConfig.String("PGpass"))+
 			"@"+beego.AppConfig.String("PGurls")+
 			// TODO: Descomentar una vez exista TERCEROS_CRUD_PGPORT en el entorno
 			// ":"+beego.AppConfig.String("PGport")+
 			"/"+beego.AppConfig.String("PGdb")+
 			"?sslmode=disable&search_path="+beego.AppConfig.String("PGschemas")+"")
 	apistatus.Init()
+	xray.InitXRay()
 	beego.ErrorController(&customerror.CustomErrorController{})
 	beego.Run()
 }
