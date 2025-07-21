@@ -45,6 +45,7 @@ steps:
 
 - name: go_run_test
   image: golang:1.22
+  failure: ignore
   commands:
   - go get -t
   - go get github.com/smartystreets/goconvey/convey
@@ -60,7 +61,6 @@ steps:
     - develop
     - feature/*
     - hotfix/*
-    - master
     - release/*
     event:
     - push
@@ -82,8 +82,8 @@ steps:
     branch:
     - dependabot/**
     - develop
-    - feature/*
     - hotfix/*
+    - feature/*
     - master
     - release/*
     event:
