@@ -65,9 +65,14 @@ func GetAllTercero(query map[string]string, fields []string, sortby []string, or
 		k = strings.Replace(k, ".", "__", -1)
 		if strings.Contains(k, "isnull") {
 			qs = qs.Filter(k, (v == "true" || v == "1"))
-		} else if strings.HasSuffix(k, "__in") || strings.HasSuffix(k, "__icontains") {
+		} else if strings.HasSuffix(k, "__in") {
 			arr := strings.Split(v, "|")
 			qs = qs.Filter(k, arr)
+		} else if strings.HasSuffix(k, "__icontains") {
+			words := strings.Split(v, "|")
+			for _, word := range words {
+				qs = qs.Filter(k, word)
+			}
 		} else {
 			qs = qs.Filter(k, v)
 		}
