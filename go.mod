@@ -1,6 +1,6 @@
 module github.com/udistrital/terceros_crud
 
-go 1.25.8
+go 1.25.5
 
 require (
 	github.com/astaxie/beego v1.12.3
