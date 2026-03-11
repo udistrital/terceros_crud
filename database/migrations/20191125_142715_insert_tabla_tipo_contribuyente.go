@@ -22,7 +22,7 @@ func (m *InsertTablaTipoContribuyente_20191125_142715) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("INSERT INTO terceros.tipo_contribuyente (id, nombre, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (1, 'PERSONA NATURAL', 'P_NATURAL', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
 	m.SQL("INSERT INTO terceros.tipo_contribuyente (id, nombre, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (2, 'PERSONA JURIDICA', 'P_JURIDICA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
-	
+
 }
 
 // Reverse the migrations

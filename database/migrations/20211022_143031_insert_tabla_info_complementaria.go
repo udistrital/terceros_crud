@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"strings"
-	
+
 	"github.com/astaxie/beego/migration"
 )
 
@@ -25,7 +25,7 @@ func init() {
 func (m *InsertTablaInfoComplementaria_20211022_143031) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	file, err := ioutil.ReadFile("../scripts/20211022_143031_insert_tabla_info_complementaria_up.sql")
-	
+
 	if err != nil {
 		// handle error
 		fmt.Println(err)
@@ -44,7 +44,7 @@ func (m *InsertTablaInfoComplementaria_20211022_143031) Up() {
 func (m *InsertTablaInfoComplementaria_20211022_143031) Down() {
 	// use m.SQL("CREATE TABLE ...") to reverse schema update
 	file, err := ioutil.ReadFile("../scripts/20211022_143031_insert_tabla_info_complementaria_down.sql")
-	
+
 	if err != nil {
 		// handle error
 		fmt.Println(err)

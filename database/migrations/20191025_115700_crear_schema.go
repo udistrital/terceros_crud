@@ -27,5 +27,5 @@ func (m *CrearSchema_20191025_115700) Up() {
 // Reverse the migrations
 func (m *CrearSchema_20191025_115700) Down() {
 	// use m.SQL("DROP TABLE ...") to reverse schema update
-	m.SQL("DROP SCHEMA IF EXISTS terceros");
+	m.SQL("DROP SCHEMA IF EXISTS terceros")
 }

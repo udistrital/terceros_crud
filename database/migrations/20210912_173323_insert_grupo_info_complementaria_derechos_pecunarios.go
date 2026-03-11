@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"io/ioutil"
 	"strings"
-	
+
 	"github.com/astaxie/beego/migration"
 )
 
@@ -25,7 +25,7 @@ func init() {
 func (m *InsertGrupoInfoComplementariaDerechosPecunarios_20210912_173323) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	file, err := ioutil.ReadFile("../scripts/20210912_173323_insert_grupo_info_complementaria_derechos_pecunarios_up.sql")
-	
+
 	if err != nil {
 		// handle error
 		fmt.Println(err)
@@ -44,7 +44,7 @@ func (m *InsertGrupoInfoComplementariaDerechosPecunarios_20210912_173323) Up() {
 func (m *InsertGrupoInfoComplementariaDerechosPecunarios_20210912_173323) Down() {
 	// use m.SQL("CREATE TABLE ...") to reverse schema update
 	file, err := ioutil.ReadFile("../scripts/20210912_173323_insert_grupo_info_complementaria_derechos_pecunarios_down.sql")
-	
+
 	if err != nil {
 		// handle error
 		fmt.Println(err)

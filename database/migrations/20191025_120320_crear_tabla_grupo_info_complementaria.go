@@ -29,7 +29,7 @@ func (m *CrearTablaGrupoInfoComplementaria_20191025_120320) Up() {
 	m.SQL("COMMENT ON COLUMN terceros.grupo_info_complementaria.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';")
 	m.SQL("COMMENT ON COLUMN terceros.grupo_info_complementaria.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';")
 	m.SQL("COMMENT ON COLUMN terceros.grupo_info_complementaria.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';")
-	
+
 }
 
 // Reverse the migrations

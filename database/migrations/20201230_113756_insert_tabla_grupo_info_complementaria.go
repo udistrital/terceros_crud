@@ -21,7 +21,7 @@ func init() {
 func (m *InsertTablaGrupoInfoComplementaria_20201230_113756) Up() {
 	// use m.SQL("CREATE TABLE ...") to make schema update
 	m.SQL("INSERT INTO terceros.grupo_info_complementaria (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (20, 'Informacion Evaluador Par','Informacion del evaluador par de la solicitud de un docente','Grupo_20', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
-	
+
 }
 
 // Reverse the migrations
