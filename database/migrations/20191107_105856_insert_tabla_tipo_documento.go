@@ -33,7 +33,7 @@ func (m *InsertTablaTipoDocumento_20191107_105856) Up() {
 	m.SQL("INSERT INTO terceros.tipo_documento (nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES ('SIN IDENTIFICACIÓN DEL EXTERIOR O PARA USO DEFINIDO POR DIAN', 'SIN IDENTIFICACIÓN DEL EXTERIOR O PARA USO DEFINIDO POR DIAN', 'SIED', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
 	m.SQL("INSERT INTO terceros.tipo_documento (nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES ('DOCUMENTO DE IDENTIFICACIÓN EXTRANJERO PERSONA JURÍDICA', 'DOCUMENTO DE IDENTIFICACIÓN EXTRANJERO PERSONA JURÍDICA', 'DIEPJ', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
 	m.SQL("INSERT INTO terceros.tipo_documento (nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES ('CARNÉ DIPLOMÁTICO', 'CARNÉ DIPLOMÁTICO', 'CD', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
-	
+
 }
 
 // Reverse the migrations

@@ -31,7 +31,7 @@ func (m *CrearTablaTerceroFamiliar_20191025_143040) Up() {
 	m.SQL("COMMENT ON COLUMN terceros.tercero_familiar.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';")
 	m.SQL("COMMENT ON COLUMN terceros.tercero_familiar.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';")
 	m.SQL("COMMENT ON COLUMN terceros.tercero_familiar.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';")
-	
+
 }
 
 // Reverse the migrations

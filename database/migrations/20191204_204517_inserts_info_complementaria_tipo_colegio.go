@@ -24,6 +24,7 @@ func (m *InsertsInfoComplementariaTipoColegio_20191204_204517) Up() {
 	m.SQL("INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('Oficial', 'Colegios oficiales', TRUE, 13, LOCALTIMESTAMP, LOCALTIMESTAMP);")
 	m.SQL("INSERT INTO terceros.info_complementaria (nombre, codigo_abreviacion, activo, grupo_info_complementaria_id, fecha_creacion, fecha_modificacion) VALUES ('Privado', 'Colegios privados', TRUE, 13, LOCALTIMESTAMP, LOCALTIMESTAMP);")
 }
+
 // Reverse the migrations
 func (m *InsertsInfoComplementariaTipoColegio_20191204_204517) Down() {
 	// use m.SQL("DROP TABLE ...") to reverse schema update

@@ -31,7 +31,7 @@ func (m *InsertTablaTipoTercero_20191125_142900) Up() {
 	m.SQL("INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (9, 'ENTIDAD_PRIVADA', null, 'ENTIDAD_PRIVADA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
 	m.SQL("INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (10, 'ENTIDAD_MIXTA', 'Eentidad de caracter tanto publica como privada', 'ENTIDAD_MIXTA', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
 	m.SQL("INSERT INTO terceros.tipo_tercero (id, nombre, descripcion, codigo_abreviacion, activo, fecha_creacion, fecha_modificacion) VALUES (11, 'FAMILIAR', 'Persona natural que tiene un parentesco con otra persona natural de la organización', 'FAMILIAR', TRUE, LOCALTIMESTAMP, LOCALTIMESTAMP);")
-	
+
 }
 
 // Reverse the migrations
