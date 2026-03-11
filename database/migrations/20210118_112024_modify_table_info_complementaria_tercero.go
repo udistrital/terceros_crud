@@ -57,5 +57,4 @@ func (m *ModifyTableInfoComplementariaTercero_20210118_112024) Down() {
 	}
 	// use m.SQL("DROP TABLE ...") to reverse schema update
 
-
 }

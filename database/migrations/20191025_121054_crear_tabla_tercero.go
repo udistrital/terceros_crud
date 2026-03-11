@@ -35,7 +35,7 @@ func (m *CrearTablaTercero_20191025_121054) Up() {
 	m.SQL("COMMENT ON COLUMN terceros.tercero.tipo_contribuyente_id IS 'Identificador de la tabla tipo_contribuyente, diferencia entre persona_natural, persona_juridica.';")
 	m.SQL("COMMENT ON COLUMN terceros.tercero.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';")
 	m.SQL("COMMENT ON COLUMN terceros.tercero.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';")
-	
+
 }
 
 // Reverse the migrations
