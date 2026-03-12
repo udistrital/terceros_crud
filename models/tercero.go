@@ -69,9 +69,10 @@ func GetAllTercero(query map[string]string, fields []string, sortby []string, or
 			arr := strings.Split(v, "|")
 			qs = qs.Filter(k, arr)
 		} else if strings.HasSuffix(k, "__icontainsall") { // permite buscar por varias palabras sin importar el orden
+			f := strings.TrimSuffix(k, "all")
 			words := strings.Split(v, "|")
 			for _, word := range words {
-				qs = qs.Filter(k, word)
+				qs = qs.Filter(f, word)
 			}
 		} else {
 			qs = qs.Filter(k, v)
