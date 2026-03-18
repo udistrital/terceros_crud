@@ -66,6 +66,12 @@ func GetAllDatosIdentificacion(query map[string]string, fields []string, sortby 
 		} else if strings.HasSuffix(k, "__in") {
 			arr := strings.Split(v, "|")
 			qs = qs.Filter(k, arr)
+		} else if strings.HasSuffix(k, "__icontainsall") {
+			f := strings.TrimSuffix(k, "all")
+			words := strings.Split(v, "|")
+			for _, word := range words {
+				qs = qs.Filter(f, word)
+			}
 		} else {
 			qs = qs.Filter(k, v)
 		}
