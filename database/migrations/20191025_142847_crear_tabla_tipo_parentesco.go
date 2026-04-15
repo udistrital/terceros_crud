@@ -30,7 +30,7 @@ func (m *CrearTablaTipoParentesco_20191025_142847) Up() {
 	m.SQL("COMMENT ON COLUMN terceros.tipo_parentesco.activo IS 'Valor booleano para indicar si el registro esta activo o inactivo.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_parentesco.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';")
 	m.SQL("COMMENT ON COLUMN terceros.tipo_parentesco.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';")
-	
+
 }
 
 // Reverse the migrations

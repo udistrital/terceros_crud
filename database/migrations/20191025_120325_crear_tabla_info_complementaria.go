@@ -31,7 +31,7 @@ func (m *CrearTablaInfoComplementaria_20191025_120325) Up() {
 	m.SQL("COMMENT ON COLUMN terceros.info_complementaria.grupo_info_complementaria_id IS 'Identificador unico de la tabla tipo_informacion_basica.';")
 	m.SQL("COMMENT ON COLUMN terceros.info_complementaria.fecha_creacion IS 'Fecha y hora de la creación del registro en la BD.';")
 	m.SQL("COMMENT ON COLUMN terceros.info_complementaria.fecha_modificacion IS 'Fecha y hora de la ultima modificación del registro en la BD.';")
-	
+
 }
 
 // Reverse the migrations
