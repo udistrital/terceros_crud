@@ -39,14 +39,14 @@ func main() {
 
 	beego.InsertFilter("*", beego.BeforeRouter, cors.Allow(&cors.Options{
 		AllowOrigins: allowedOrigins,
-		AllowMethods: []string{"DELETE", "GET", "OPTIONS", "POST", "PUT"}, // ajustar según los métodos usados en el api
+		AllowMethods: []string{"DELETE", "GET", "OPTIONS", "POST", "PUT"},
 		AllowHeaders: []string{
 			"Accept",
 			"Authorization",
 			"Content-Type",
 			"User-Agent",
 			"X-Amzn-Trace-Id"},
-		ExposeHeaders:    []string{"Content-Length"}, // agregar otros headers según sea el caso
+		ExposeHeaders:    []string{"Content-Length"},
 		AllowCredentials: true,
 	}))
 
